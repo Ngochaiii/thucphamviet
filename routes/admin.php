@@ -47,11 +47,23 @@ Route::group(['prefix' => 'categories', 'as' => 'admin.categories.'], function (
         Route::post('/{unit}/toggle-status', [UnitController::class, 'toggleStatus'])->name('toggle-status');
         Route::get('/{unit}', [UnitController::class, 'show'])->name('show');
     });
-// User routes (nếu có)
-// Route::resource('users', UserController::class, ['as' => 'admin']);
+// Product routes
+Route::group(['prefix' => 'products', 'as' => 'admin.products.'], function () {
+    // Main CRUD routes
+    Route::get('/', [ProductController::class, 'index'])->name('index');
+    Route::get('/create', [ProductController::class, 'create'])->name('create');
+    Route::post('/', [ProductController::class, 'store'])->name('store');
+    Route::get('/{product}/edit', [ProductController::class, 'edit'])->name('edit');
+    Route::put('/{product}', [ProductController::class, 'update'])->name('update');
+    Route::delete('/{product}', [ProductController::class, 'destroy'])->name('destroy');
+    Route::get('/{product}', [ProductController::class, 'show'])->name('show');
 
-// Product routes (nếu có)
-// Route::resource('products', ProductController::class, ['as' => 'admin']);
-
-// Order routes (nếu có)
-// Route::resource('orders', OrderController::class, ['as' => 'admin']);
+    // Additional product-specific routes
+    Route::post('/bulk-update-status', [ProductController::class, 'bulkUpdateStatus'])->name('bulk-update-status');
+    Route::delete('/bulk-delete', [ProductController::class, 'bulkDelete'])->name('bulk-delete');
+    Route::get('/search/ajax', [ProductController::class, 'search'])->name('search');
+    Route::get('/statistics/ajax', [ProductController::class, 'statistics'])->name('statistics');
+    Route::post('/{product}/toggle-status', [ProductController::class, 'toggleStatus'])->name('toggle-status');
+    Route::post('/{product}/toggle-featured', [ProductController::class, 'toggleFeatured'])->name('toggle-featured');
+    Route::post('/{product}/update-rating', [ProductController::class, 'updateRating'])->name('update-rating');
+});

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Helpers\CurrencyHelper;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,6 +27,7 @@ class Product extends Model
         'rating_avg',
         'rating_count',
         'is_featured',
+        'currency',
     ];
 
     protected $casts = [
@@ -45,6 +47,7 @@ class Product extends Model
         'rating_count' => 0,
         'is_featured' => false,
         'quantity' => 0,
+        'currency' => 'JPY',
     ];
 
     // Relationships
@@ -145,4 +148,15 @@ class Product extends Model
         $this->rating_avg = $reviews->avg('rating') ?: 0;
         $this->save();
     }
+    // Accessor để format giá
+public function getFormattedPriceAttribute()
+{
+    return CurrencyHelper::formatPrice($this->price, $this->currency);
+}
+
+// Accessor để format giá sau giảm
+public function getFormattedDiscountedPriceAttribute()
+{
+    return CurrencyHelper::formatPrice($this->discounted_price, $this->currency);
+}
 }

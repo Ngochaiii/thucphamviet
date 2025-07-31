@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('description')->nullable();
             $table->text('specification')->nullable()->comment('thông số kỹ thuật');
+            $table->string('currency', 3)->default('JPY');
             $table->decimal('price', 10, 2);
             $table->integer('quantity')->default(0);
             $table->enum('status', ['active', 'inactive', 'out_of_stock'])->default('active');
