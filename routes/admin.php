@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Admin\UnitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,17 @@ Route::group(['prefix' => 'categories', 'as' => 'admin.categories.'], function (
     Route::get('/{category}', [CategoryController::class, 'show'])->name('show');
 });
 
+// Units Routes (new)
+    Route::group(['prefix' => 'units', 'as' => 'admin.units.'], function () {
+        Route::get('/', [UnitController::class, 'index'])->name('index');
+        Route::get('/create', [UnitController::class, 'create'])->name('create');
+        Route::post('/', [UnitController::class, 'store'])->name('store');
+        Route::get('/{unit}/edit', [UnitController::class, 'edit'])->name('edit');
+        Route::put('/{unit}', [UnitController::class, 'update'])->name('update');
+        Route::delete('/{unit}', [UnitController::class, 'destroy'])->name('destroy');
+        Route::post('/{unit}/toggle-status', [UnitController::class, 'toggleStatus'])->name('toggle-status');
+        Route::get('/{unit}', [UnitController::class, 'show'])->name('show');
+    });
 // User routes (nếu có)
 // Route::resource('users', UserController::class, ['as' => 'admin']);
 
