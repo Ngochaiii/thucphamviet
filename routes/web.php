@@ -1,6 +1,8 @@
 <?php
 
 // routes/web.php - Frontend routes (Tất cả public)
+
+use App\Http\Controllers\Web\CategoryController;
 use App\Http\Controllers\Web\HomeController;
 use App\Http\Controllers\Web\ProductController;
 use App\Http\Controllers\Web\CartController;
@@ -25,9 +27,7 @@ Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('regi
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Products - Public cho tất cả
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/category/{slug}', [CategoryController::class, 'show'])->name('category.show');
 
 // Dashboard - Public (hiển thị khác nhau tùy đăng nhập hay không)
 Route::get('/dashboard', function () {

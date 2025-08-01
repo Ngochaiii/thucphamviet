@@ -76,4 +76,31 @@ class Category extends Model
     {
         return $this->children()->count() > 0;
     }
+    /**
+     * Lấy URL ảnh đầy đủ của category
+     */
+    public function getImageUrlAttribute()
+    {
+        return $this->image ? asset('storage/' . $this->image) : null;
+    }
+
+    /**
+     * Lấy ảnh hoặc chữ cái đầu
+     */
+    public function getDisplayImageAttribute()
+    {
+        if ($this->image) {
+            return [
+                'type' => 'image',
+                'src' => asset('storage/' . $this->image),
+                'alt' => $this->name
+            ];
+        }
+
+        return [
+            'type' => 'text',
+            'letter' => strtoupper(substr($this->name, 0, 1)),
+            'alt' => $this->name
+        ];
+    }
 }
