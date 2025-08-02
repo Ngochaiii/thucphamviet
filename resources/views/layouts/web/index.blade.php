@@ -10,6 +10,7 @@
     <meta name="author" content="">
     <meta name="keywords" content="">
     <meta name="description" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @include('layouts.web.layouts.header_css')
     @stack('header_css')
 </head>
@@ -21,6 +22,7 @@
     @yield('content')
 @include('layouts.web.layouts.footer')
 @include('layouts.web.layouts.footer_js')
+@include('layouts.web.layouts.cart')
 @stack('footer_js')
 </body>
 </html>

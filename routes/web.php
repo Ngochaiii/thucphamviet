@@ -42,28 +42,21 @@ Route::get('/dashboard', function () {
     return view('dashboard.guest');
 })->name('dashboard');
 
-// Profile - Public (tự check trong controller/view)
-Route::prefix('profile')->name('profile.')->group(function () {
-    Route::get('/', [ProfileController::class, 'show'])->name('show');
-    Route::get('/edit', [ProfileController::class, 'edit'])->name('edit');
-    Route::put('/', [AuthController::class, 'updateProfile'])->name('update');
-    Route::put('/change-password', [AuthController::class, 'changePassword'])->name('change-password');
-});
+Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+Route::put('/cart/item/{itemId}', [CartController::class, 'updateQuantity'])->name('cart.update');
+Route::delete('/cart/item/{itemId}', [CartController::class, 'removeItem'])->name('cart.remove');
+Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
+Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
-// Cart - Public (guest cart + user cart)
-Route::prefix('cart')->name('cart.')->group(function () {
-    Route::get('/', [CartController::class, 'index'])->name('index');
-    Route::post('/add', [CartController::class, 'add'])->name('add');
-    Route::put('/{id}', [CartController::class, 'update'])->name('update');
-    Route::delete('/{id}', [CartController::class, 'remove'])->name('remove');
-});
 
-// Orders - Public (tự check trong controller)
-Route::prefix('orders')->name('orders.')->group(function () {
-    Route::get('/', [OrderController::class, 'index'])->name('index');
-    Route::get('/{id}', [OrderController::class, 'show'])->name('show');
-    Route::post('/', [OrderController::class, 'store'])->name('store');
-});
+// // Cart - Public (guest cart + user cart)
+// Route::prefix('cart')->name('cart.')->group(function () {
+//     Route::get('/', [CartController::class, 'index'])->name('index');
+//     Route::post('/add', [CartController::class, 'add'])->name('add');
+//     Route::put('/{id}', [CartController::class, 'update'])->name('update');
+//     Route::delete('/{id}', [CartController::class, 'remove'])->name('remove');
+// });
+
 
 // Contact, About, etc - Public
 Route::get('/about', function () {

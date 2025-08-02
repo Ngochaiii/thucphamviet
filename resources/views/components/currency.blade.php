@@ -1,26 +1,22 @@
+{{-- resources/views/components/currency.blade.php --}}
 @php
-    $currencies = [
-        'JPY' => ['symbol' => '¥', 'position' => 'before', 'decimals' => 0],
-        'VND' => ['symbol' => '₫', 'position' => 'after', 'decimals' => 0],
-        'USD' => ['symbol' => '$', 'position' => 'before', 'decimals' => 2],
-        'EUR' => ['symbol' => '€', 'position' => 'before', 'decimals' => 2],
-        'CNY' => ['symbol' => '¥', 'position' => 'before', 'decimals' => 2],
-        'KRW' => ['symbol' => '₩', 'position' => 'before', 'decimals' => 0],
-    ];
+    use App\Helpers\CurrencyHelper;
 
-    $currencyInfo = $currencies[$currency] ?? $currencies['JPY'];
-    $formattedAmount = number_format($amount, $currencyInfo['decimals'], '.', ',');
-
-    if ($currencyInfo['position'] === 'after') {
-        $display = $formattedAmount . ' ' . $currencyInfo['symbol'];
-    } else {
-        $display = $currencyInfo['symbol'] . $formattedAmount;
-    }
+    // Sử dụng CurrencyHelper thay vì tự định nghĩa
+    $formattedPrice = CurrencyHelper::formatPrice($amount, $currency);
 @endphp
 
-<span {{ $attributes->merge(['class' => 'currency']) }}>{{ $display }}</span>
+<span {{ $attributes->merge(['class' => 'currency']) }}>{{ $formattedPrice }}</span>
 
 {{--
-Sử dụng:
-<x-currency :amount="$product->price" :currency="$product->currency" class="text-primary font-weight-bold" />
+Cách sử dụng:
+1. Hiển thị giá gốc:
+<x-currency :amount="$product->price" :currency="$product->currency" class="text-primary fw-bold" />
+
+2. Hiển thị giá sau giảm:
+<x-currency :amount="$product->discounted_price" :currency="$product->currency" class="text-danger fw-bold" />
+
+3. Sử dụng accessor từ model:
+{{ $product->formatted_price }} - sử dụng getFormattedPriceAttribute()
+{{ $product->formatted_discounted_price }} - sử dụng getFormattedDiscountedPriceAttribute()
 --}}

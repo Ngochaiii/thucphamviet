@@ -4,7 +4,7 @@
 
           <div class="col-sm-4 col-lg-2 text-center text-sm-start d-flex gap-3 justify-content-center justify-content-md-start">
             <div class="d-flex align-items-center my-3 my-sm-0">
-              <a href="index.html">
+              <a href="{{route('homepage')}}">
                 <img src="{{asset('assets/web/images/logo.svg')}}" alt="logo" class="img-fluid">
               </a>
             </div>
@@ -25,7 +25,7 @@
                 </select>
               </div>
               <div class="col-11 col-md-7">
-                <form id="search-form" class="text-center" action="index.html" method="post">
+                <form id="search-form" class="text-center" action="{{route('homepage')}}" method="post">
                   <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for more than 20,000 products">
                 </form>
               </div>
@@ -38,23 +38,23 @@
           <div class="col-lg-4">
             <ul class="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
               <li class="nav-item active">
-                <a href="index.html" class="nav-link">Home</a>
+                <a href="{{route('homepage')}}" class="nav-link">Home</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle pe-3" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
                 <ul class="dropdown-menu border-0 p-3 rounded-0 shadow" aria-labelledby="pages">
-                  <li><a href="index.html" class="dropdown-item">About Us </a></li>
-                  <li><a href="index.html" class="dropdown-item">Shop </a></li>
-                  <li><a href="index.html" class="dropdown-item">Single Product </a></li>
-                  <li><a href="index.html" class="dropdown-item">Cart </a></li>
-                  <li><a href="index.html" class="dropdown-item">Checkout </a></li>
-                  <li><a href="index.html" class="dropdown-item">Blog </a></li>
-                  <li><a href="index.html" class="dropdown-item">Single Post </a></li>
-                  <li><a href="index.html" class="dropdown-item">Styles </a></li>
-                  <li><a href="index.html" class="dropdown-item">Contact </a></li>
-                  <li><a href="index.html" class="dropdown-item">Thank You </a></li>
-                  <li><a href="index.html" class="dropdown-item">My Account </a></li>
-                  <li><a href="index.html" class="dropdown-item">404 Error </a></li>
+                  <li><a href="{{route('homepage')}}" class="dropdown-item">About Us </a></li>
+                  <li><a href="{{route('homepage')}}" class="dropdown-item">Shop </a></li>
+                  <li><a href="{{route('homepage')}}" class="dropdown-item">Single Product </a></li>
+                  <li><a href="{{route('homepage')}}" class="dropdown-item">Cart </a></li>
+                  <li><a href="{{route('homepage')}}" class="dropdown-item">Checkout </a></li>
+                  <li><a href="{{route('homepage')}}" class="dropdown-item">Blog </a></li>
+                  <li><a href="{{route('homepage')}}" class="dropdown-item">Single Post </a></li>
+                  <li><a href="{{route('homepage')}}" class="dropdown-item">Styles </a></li>
+                  <li><a href="{{route('homepage')}}" class="dropdown-item">Contact </a></li>
+                  <li><a href="{{route('homepage')}}" class="dropdown-item">Thank You </a></li>
+                  <li><a href="{{route('homepage')}}" class="dropdown-item">My Account </a></li>
+                  <li><a href="{{route('homepage')}}" class="dropdown-item">404 Error </a></li>
                 </ul>
               </li>
             </ul>
@@ -73,7 +73,7 @@
                 </a>
               </li>
               <li>
-                <a href="#" class="p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                <a href="{{route('cart.index')}}" class="p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                   <svg width="24" height="24"><use xlink:href="#shopping-bag"></use></svg>
                 </a>
               </li>
