@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\admin\PaymentMethodController;
 use App\Http\Controllers\admin\ShippingRateController;
 use App\Http\Controllers\Admin\UnitController;
 
@@ -38,16 +39,16 @@ Route::group(['prefix' => 'categories', 'as' => 'admin.categories.'], function (
 });
 
 // Units Routes (new)
-    Route::group(['prefix' => 'units', 'as' => 'admin.units.'], function () {
-        Route::get('/', [UnitController::class, 'index'])->name('index');
-        Route::get('/create', [UnitController::class, 'create'])->name('create');
-        Route::post('/', [UnitController::class, 'store'])->name('store');
-        Route::get('/{unit}/edit', [UnitController::class, 'edit'])->name('edit');
-        Route::put('/{unit}', [UnitController::class, 'update'])->name('update');
-        Route::delete('/{unit}', [UnitController::class, 'destroy'])->name('destroy');
-        Route::post('/{unit}/toggle-status', [UnitController::class, 'toggleStatus'])->name('toggle-status');
-        Route::get('/{unit}', [UnitController::class, 'show'])->name('show');
-    });
+Route::group(['prefix' => 'units', 'as' => 'admin.units.'], function () {
+    Route::get('/', [UnitController::class, 'index'])->name('index');
+    Route::get('/create', [UnitController::class, 'create'])->name('create');
+    Route::post('/', [UnitController::class, 'store'])->name('store');
+    Route::get('/{unit}/edit', [UnitController::class, 'edit'])->name('edit');
+    Route::put('/{unit}', [UnitController::class, 'update'])->name('update');
+    Route::delete('/{unit}', [UnitController::class, 'destroy'])->name('destroy');
+    Route::post('/{unit}/toggle-status', [UnitController::class, 'toggleStatus'])->name('toggle-status');
+    Route::get('/{unit}', [UnitController::class, 'show'])->name('show');
+});
 // Product routes
 Route::group(['prefix' => 'products', 'as' => 'admin.products.'], function () {
     // Main CRUD routes
@@ -82,4 +83,17 @@ Route::group(['prefix' => 'shipping-rates', 'as' => 'admin.shipping-rates.'], fu
     Route::post('/calculate-fee', [ShippingRateController::class, 'calculateFee'])->name('calculate-fee');
     Route::get('/provinces', [ShippingRateController::class, 'getProvinces'])->name('provinces');
     Route::get('/cities/{province}', [ShippingRateController::class, 'getCities'])->name('cities');
+});
+
+// Payment Methods Routes
+Route::group(['prefix' => 'payment-methods', 'as' => 'admin.payment-methods.'], function () {
+    Route::get('/', [PaymentMethodController::class, 'index'])->name('index');
+    Route::get('/create', [PaymentMethodController::class, 'create'])->name('create');
+    Route::post('/', [PaymentMethodController::class, 'store'])->name('store');
+    Route::get('/{paymentMethod}/edit', [PaymentMethodController::class, 'edit'])->name('edit');
+    Route::put('/{paymentMethod}', [PaymentMethodController::class, 'update'])->name('update');
+    Route::delete('/{paymentMethod}', [PaymentMethodController::class, 'destroy'])->name('destroy');
+
+    // Toggle status
+    Route::post('/{paymentMethod}/toggle-status', [PaymentMethodController::class, 'toggleStatus'])->name('toggle-status');
 });
