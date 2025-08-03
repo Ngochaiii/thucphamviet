@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\admin\ShippingRateController;
 use App\Http\Controllers\Admin\UnitController;
 
 /*
@@ -66,4 +67,19 @@ Route::group(['prefix' => 'products', 'as' => 'admin.products.'], function () {
     Route::post('/{product}/toggle-status', [ProductController::class, 'toggleStatus'])->name('toggle-status');
     Route::post('/{product}/toggle-featured', [ProductController::class, 'toggleFeatured'])->name('toggle-featured');
     Route::post('/{product}/update-rating', [ProductController::class, 'updateRating'])->name('update-rating');
+});
+// Shipping Rates Routes
+Route::group(['prefix' => 'shipping-rates', 'as' => 'admin.shipping-rates.'], function () {
+    Route::get('/', [ShippingRateController::class, 'index'])->name('index');
+    Route::get('/create', [ShippingRateController::class, 'create'])->name('create');
+    Route::post('/', [ShippingRateController::class, 'store'])->name('store');
+    Route::get('/{shippingRate}/edit', [ShippingRateController::class, 'edit'])->name('edit');
+    Route::put('/{shippingRate}', [ShippingRateController::class, 'update'])->name('update');
+    Route::delete('/{shippingRate}', [ShippingRateController::class, 'destroy'])->name('destroy');
+    Route::get('/{shippingRate}', [ShippingRateController::class, 'show'])->name('show');
+
+    // Additional API routes for shipping calculations
+    Route::post('/calculate-fee', [ShippingRateController::class, 'calculateFee'])->name('calculate-fee');
+    Route::get('/provinces', [ShippingRateController::class, 'getProvinces'])->name('provinces');
+    Route::get('/cities/{province}', [ShippingRateController::class, 'getCities'])->name('cities');
 });

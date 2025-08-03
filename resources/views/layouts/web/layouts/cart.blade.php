@@ -44,7 +44,7 @@
                 <span class="total-amount">¥ 600</span>
             </div>
             <div class="cart-actions">
-                <button class="cart-btn view-cart-btn">Xem giỏ hàng</button>
+                <a href="{{ route('cart.index') }}" class="cart-btn view-cart-btn">Xem giỏ hàng</a>
                 <button class="cart-btn checkout-btn">Tiến hành đặt hàng</button>
                 <button class="cart-btn continue-btn">Tiếp tục mua hàng</button>
             </div>

@@ -57,7 +57,20 @@ Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.ch
 //     Route::delete('/{id}', [CartController::class, 'remove'])->name('remove');
 // });
 
+// Product Routes
+Route::prefix('products')->name('products.')->group(function () {
+    // Trang tất cả sản phẩm
+    Route::get('/', [ProductController::class, 'allProducts'])->name('all');
 
+    // API endpoint cho AJAX (nếu cần)
+    Route::get('/ajax', [ProductController::class, 'getProductsAjax'])->name('ajax');
+
+    // Sản phẩm theo danh mục (redirect đến all products với filter)
+    Route::get('/category/{categorySlug}', [ProductController::class, 'byCategory'])->name('by-category');
+
+    // Chi tiết sản phẩm
+    Route::get('/{slug}', [ProductController::class, 'show'])->name('show');
+});
 // Contact, About, etc - Public
 Route::get('/about', function () {
     return view('pages.about');
