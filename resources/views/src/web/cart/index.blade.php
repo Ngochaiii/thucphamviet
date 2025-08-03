@@ -287,7 +287,7 @@
 
                         {{-- Action Buttons --}}
                         <div class="d-grid gap-3">
-                            <a href="{{ route('cart.checkout') }}" class="btn btn-primary btn-lg">
+                            <a href="{{ route('order.all') }}" class="btn btn-primary btn-lg">
                                 <i class="bi bi-credit-card me-2"></i>
                                 Tiến hành thanh toán
                             </a>

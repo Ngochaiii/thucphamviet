@@ -90,4 +90,9 @@ Route::get('/checkout', function () {
     return view('checkout.index');
 })->name('checkout');
 
-// Tất cả routes khác cũng public...
+// Product Routes
+Route::prefix('order')->name('order.')->group(function () {
+    // Trang tất cả sản phẩm
+    Route::get('/', [OrderController::class, 'index'])->name('all');
+});
+

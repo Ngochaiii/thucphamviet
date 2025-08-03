@@ -43,7 +43,7 @@ class User extends Authenticatable
 
     public function paymentMethods(): HasMany
     {
-        return $this->hasMany(PaymentMethod::class);
+        return $this->hasMany(PaymentMethods::class);
     }
 
     public function carts(): HasMany
@@ -53,7 +53,7 @@ class User extends Authenticatable
 
     public function savedCards(): HasMany
     {
-        return $this->hasMany(PaymentMethod::class)->where('type', 'credit_card');
+        return $this->hasMany(PaymentMethods::class)->where('type', 'credit_card');
     }
 
     // Accessors

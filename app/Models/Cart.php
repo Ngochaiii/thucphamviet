@@ -131,7 +131,7 @@ class Cart extends Model
      */
     public function isEmpty(): bool
     {
-        return $this->items->count() === 0;
+        return $this->total_item == 0;
     }
 
     /**

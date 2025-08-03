@@ -38,10 +38,13 @@
           <div class="col-lg-4">
             <ul class="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
               <li class="nav-item active">
-                <a href="{{route('homepage')}}" class="nav-link">Home</a>
+                <a href="{{route('homepage')}}" class="nav-link">HOME</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle pe-3" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
+              <li class="nav-item active">
+                <a href="{{route('products.all')}}" class="nav-link">SHOP</a>
+              </li>
+              {{-- <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle pe-3" href="{{route('products.all')}}" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">SHOP</a>
                 <ul class="dropdown-menu border-0 p-3 rounded-0 shadow" aria-labelledby="pages">
                   <li><a href="{{route('homepage')}}" class="dropdown-item">About Us </a></li>
                   <li><a href="{{route('products.all')}}" class="dropdown-item">Shop </a></li>
@@ -56,7 +59,7 @@
                   <li><a href="{{route('homepage')}}" class="dropdown-item">My Account </a></li>
                   <li><a href="{{route('homepage')}}" class="dropdown-item">404 Error </a></li>
                 </ul>
-              </li>
+              </li> --}}
             </ul>
           </div>
 
@@ -73,7 +76,7 @@
                 </a>
               </li>
               <li>
-                <a href="{{route('cart.index')}}" class="p-2 mx-1" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                <a href="{{route('cart.index')}}" class="p-2 mx-1">
                   <svg width="24" height="24"><use xlink:href="#shopping-bag"></use></svg>
                 </a>
               </li>
