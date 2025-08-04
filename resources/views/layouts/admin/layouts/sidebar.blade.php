@@ -149,11 +149,11 @@
                           </li>
                       </ul>
                   </li>
-                  <li class="nav-header">Cashback</li>
+                  <li class="nav-header">Đơn hàng </li>
                   <li class="nav-item">
-                      <a href="" class="nav-link">
+                      <a href="{{route('admin.customers.index')}}" class="nav-link">
                           <i class="nav-icon fas fa-ellipsis-h"></i>
-                          <p>Cashback</p>
+                          <p>Đơn hàng</p>
                       </a>
                   </li>
               </ul>

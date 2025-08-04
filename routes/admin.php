@@ -3,6 +3,7 @@
 // routes/admin.php
 
 use App\Http\Controllers\Admin\CategoryController; // Sửa: Admin viết hoa
+use App\Http\Controllers\admin\CustomerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
@@ -96,4 +97,13 @@ Route::group(['prefix' => 'payment-methods', 'as' => 'admin.payment-methods.'], 
 
     // Toggle status
     Route::post('/{paymentMethod}/toggle-status', [PaymentMethodController::class, 'toggleStatus'])->name('toggle-status');
+});
+
+Route::group(['prefix' => 'customers', 'as' => 'admin.customers.'], function () {
+    Route::get('/', [App\Http\Controllers\admin\CustomerController::class, 'index'])->name('index');
+    Route::get('/{id}', [App\Http\Controllers\admin\CustomerController::class, 'show'])->name('show');
+    Route::post('/{id}/update-status', [App\Http\Controllers\admin\CustomerController::class, 'updateStatus'])->name('update-status');
+    Route::post('/{id}/confirm', [App\Http\Controllers\admin\CustomerController::class, 'confirm'])->name('confirm');
+    Route::post('/{id}/cancel', [App\Http\Controllers\admin\CustomerController::class, 'cancel'])->name('cancel');
+    Route::post('/{id}/update-notes', [CustomerController::class, 'updateNotes'])->name('update-notes');
 });
