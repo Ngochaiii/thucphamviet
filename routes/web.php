@@ -90,9 +90,10 @@ Route::get('/checkout', function () {
     return view('checkout.index');
 })->name('checkout');
 
-// Product Routes
 Route::prefix('order')->name('order.')->group(function () {
-    // Trang tất cả sản phẩm
     Route::get('/', [OrderController::class, 'index'])->name('all');
+    Route::post('/', [OrderController::class, 'store'])->name('store'); // Submit order
+    Route::get('/success/{order}', [OrderController::class, 'success'])->name('success'); // Success page
+    
 });
 
