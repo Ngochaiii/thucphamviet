@@ -202,7 +202,7 @@ public function store(Request $request)
     $request->validate([
         'customer_name' => 'required|string|max:255',
         'customer_email' => 'nullable|email|max:255',
-        'customer_phone' => 'nullable|string|max:20',
+        'customer_phone' => 'required|string|max:20',
         'province' => 'required|string',
         'city' => 'nullable|string',
         'address' => 'nullable|string|max:500',

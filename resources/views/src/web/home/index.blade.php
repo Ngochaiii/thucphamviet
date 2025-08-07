@@ -742,9 +742,9 @@
                             style="background: url('images/banner-ad-1.jpg') no-repeat; background-size: cover;">
                             <div class="banner-content p-5">
                                 <div class="content-wrapper text-light">
-                                    <h3 class="banner-title text-light">Items on SALE</h3>
-                                    <p>Discounts up to 30%</p>
-                                    <a href="#" class="btn-link text-white">Shop Now</a>
+                                    <h3 class="banner-title text-light">Sản phẩm đang SALE</h3>
+                                    <p>Giảm giá 30%</p>
+                                    <a href="{{ route('products.all') }}" class="btn-link text-white">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -753,9 +753,9 @@
                             style="background:url('images/banner-ad-2.jpg') no-repeat;background-size: cover">
                             <div class="banner-content align-items-center p-5">
                                 <div class="content-wrapper text-light">
-                                    <h3 class="banner-title text-light">Combo offers</h3>
-                                    <p>Discounts up to 50%</p>
-                                    <a href="#" class="btn-link text-white">Shop Now</a>
+                                    <h3 class="banner-title text-light">Combo Sản phẩm</h3>
+                                    <p>Giảm giá 50%</p>
+                                    <a href="{{ route('products.all') }}" class="btn-link text-white">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -764,9 +764,9 @@
                             style="background:url('images/banner-ad-3.jpg') no-repeat;background-size: cover">
                             <div class="banner-content align-items-center p-5">
                                 <div class="content-wrapper text-light">
-                                    <h3 class="banner-title text-light">Discount Coupons</h3>
-                                    <p>Discounts up to 40%</p>
-                                    <a href="#" class="btn-link text-white">Shop Now</a>
+                                    <h3 class="banner-title text-light">Áp mã giảm giá</h3>
+                                    <p>Giảm giá 40%</p>
+                                    <a href="{{ route('products.all') }}" class="btn-link text-white">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -1354,11 +1354,12 @@
                     <div class="row justify-content-center">
                         <div class="col-md-5 p-3">
                             <div class="section-header">
-                                <h2 class="section-title display-5 text-light">Get 25% Discount on your first purchase
+                                <h2 class="section-title display-5 text-light">Nhận ngay ưu đãi 25% cho lần mua đầu tiên
                                 </h2>
                             </div>
-                            <p>Just Sign Up & Register it now to become member.</p>
+                            <p>Chỉ cần đăng ký ngay để trở thành thành viên của chúng tôi.</p>
                         </div>
+
                         <div class="col-md-5 p-3">
                             <form>
                                 <div class="mb-3">
@@ -2469,8 +2470,8 @@
         <div class="container-lg">
             <div class="row">
                 <div class="section-header d-flex align-items-center justify-content-between my-4">
-                    <h2 class="section-title">Our Recent Blog</h2>
-                    <a href="#" class="btn btn-primary">View All</a>
+                    <h2 class="section-title">Blog Mới Nhất</h2>
+                    <a href="#" class="btn btn-primary">Xem Tất Cả</a>
                 </div>
             </div>
             <div class="row">
@@ -2478,7 +2479,7 @@
                     <article class="post-item card border-0 shadow-sm p-3">
                         <div class="image-holder zoom-effect">
                             <a href="#">
-                                <img src="{{ asset('assets/web/images/post-thumbnail-1.jpg') }}" alt="post"
+                                <img src="{{ asset('assets/web/images/post-thumbnail-1.jpg') }}" alt="bài viết"
                                     class="card-img-top">
                             </a>
                         </div>
@@ -2486,18 +2487,18 @@
                             <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
                                 <div class="meta-date"><svg width="16" height="16">
                                         <use xlink:href="#calendar"></use>
-                                    </svg>22 Aug 2021</div>
+                                    </svg>10 Tháng 8, 2025</div>
                                 <div class="meta-categories"><svg width="16" height="16">
                                         <use xlink:href="#category"></use>
-                                    </svg>tips & tricks</div>
+                                    </svg>Thực phẩm sạch</div>
                             </div>
                             <div class="post-header">
                                 <h3 class="post-title">
-                                    <a href="#" class="text-decoration-none">Top 10 casual look ideas to dress up
-                                        your kids</a>
+                                    <a href="#" class="text-decoration-none">Lợi ích khi sử dụng thực phẩm hữu cơ
+                                        hàng ngày</a>
                                 </h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim
-                                    tincidunt donec quam. A in arcu, hendrerit neque dolor morbi...</p>
+                                <p>Khám phá tại sao thực phẩm hữu cơ lại tốt cho sức khỏe và môi trường hơn so với thực phẩm
+                                    thông thường.</p>
                             </div>
                         </div>
                     </article>
@@ -2506,7 +2507,7 @@
                     <article class="post-item card border-0 shadow-sm p-3">
                         <div class="image-holder zoom-effect">
                             <a href="#">
-                                <img src="{{ asset('assets/web/images/post-thumbnail-2.jpg') }}" alt="post"
+                                <img src="{{ asset('assets/web/images/post-thumbnail-2.jpg') }}" alt="bài viết"
                                     class="card-img-top">
                             </a>
                         </div>
@@ -2514,18 +2515,18 @@
                             <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
                                 <div class="meta-date"><svg width="16" height="16">
                                         <use xlink:href="#calendar"></use>
-                                    </svg>25 Aug 2021</div>
+                                    </svg>15 Tháng 8, 2025</div>
                                 <div class="meta-categories"><svg width="16" height="16">
                                         <use xlink:href="#category"></use>
-                                    </svg>trending</div>
+                                    </svg>Dinh dưỡng</div>
                             </div>
                             <div class="post-header">
                                 <h3 class="post-title">
-                                    <a href="#" class="text-decoration-none">Latest trends of wearing street wears
-                                        supremely</a>
+                                    <a href="#" class="text-decoration-none">5 cách chọn mua thực phẩm sạch tại
+                                        chợ</a>
                                 </h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim
-                                    tincidunt donec quam. A in arcu, hendrerit neque dolor morbi...</p>
+                                <p>Mẹo giúp bạn nhận biết và lựa chọn thực phẩm sạch, tươi ngon, đảm bảo an toàn cho gia
+                                    đình.</p>
                             </div>
                         </div>
                     </article>
@@ -2534,7 +2535,7 @@
                     <article class="post-item card border-0 shadow-sm p-3">
                         <div class="image-holder zoom-effect">
                             <a href="#">
-                                <img src="{{ asset('assets/web/images/post-thumbnail-3.jpg') }}" alt="post"
+                                <img src="{{ asset('assets/web/images/post-thumbnail-3.jpg') }}" alt="bài viết"
                                     class="card-img-top">
                             </a>
                         </div>
@@ -2542,24 +2543,25 @@
                             <div class="post-meta d-flex text-uppercase gap-3 my-2 align-items-center">
                                 <div class="meta-date"><svg width="16" height="16">
                                         <use xlink:href="#calendar"></use>
-                                    </svg>28 Aug 2021</div>
+                                    </svg>20 Tháng 8, 2025</div>
                                 <div class="meta-categories"><svg width="16" height="16">
                                         <use xlink:href="#category"></use>
-                                    </svg>inspiration</div>
+                                    </svg>Xu hướng</div>
                             </div>
                             <div class="post-header">
                                 <h3 class="post-title">
-                                    <a href="#" class="text-decoration-none">10 Different Types of comfortable
-                                        clothes ideas for women</a>
+                                    <a href="#" class="text-decoration-none">Xu hướng tiêu dùng thực phẩm sạch năm
+                                        2025</a>
                                 </h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipi elit. Aliquet eleifend viverra enim
-                                    tincidunt donec quam. A in arcu, hendrerit neque dolor morbi...</p>
+                                <p>Tổng quan về nhu cầu và xu hướng lựa chọn thực phẩm sạch ngày càng tăng trong cộng đồng.
+                                </p>
                             </div>
                         </div>
                     </article>
                 </div>
             </div>
         </div>
+
     </section>
 
     <section class="pb-4 my-4">
@@ -2625,8 +2627,8 @@
                             </svg>
                         </div>
                         <div class="card-body p-0">
-                            <h5>Free delivery</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+                            <h5>Giao hàng tận nơi</h5>
+                            <p class="card-text">Giao hàng nhanh chóng, tận nơi trong khu vực .</p>
                         </div>
                     </div>
                 </div>
@@ -2638,8 +2640,8 @@
                             </svg>
                         </div>
                         <div class="card-body p-0">
-                            <h5>100% secure payment</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+                            <h5>Thanh toán an toàn 100%</h5>
+                            <p class="card-text">Bảo mật tuyệt đối với các phương thức thanh toán đáng tin cậy.</p>
                         </div>
                     </div>
                 </div>
@@ -2651,8 +2653,8 @@
                             </svg>
                         </div>
                         <div class="card-body p-0">
-                            <h5>Quality guarantee</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+                            <h5>Cam kết chất lượng</h5>
+                            <p class="card-text">Sản phẩm được kiểm định nghiêm ngặt, đảm bảo tươi sạch và an toàn.</p>
                         </div>
                     </div>
                 </div>
@@ -2664,8 +2666,8 @@
                             </svg>
                         </div>
                         <div class="card-body p-0">
-                            <h5>guaranteed savings</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+                            <h5>Tiết kiệm đảm bảo</h5>
+                            <p class="card-text">Giá cả cạnh tranh, giúp bạn tiết kiệm tối đa chi phí mua sắm.</p>
                         </div>
                     </div>
                 </div>
@@ -2677,12 +2679,13 @@
                             </svg>
                         </div>
                         <div class="card-body p-0">
-                            <h5>Daily offers</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
+                            <h5>Ưu đãi hàng ngày</h5>
+                            <p class="card-text">Cập nhật các chương trình khuyến mãi hấp dẫn mỗi ngày cho khách hàng.</p>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 @endsection
@@ -2828,5 +2831,4 @@
 @endpush
 
 @push('footer_js')
-    
 @endpush

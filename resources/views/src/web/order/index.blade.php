@@ -30,7 +30,13 @@
                                     <input type="text" class="form-control form-control-lg" id="customer_name"
                                         name="customer_name" required>
                                 </div>
-
+                                <div class="mb-3">
+                                    <label for="customer_name" class="form-label fw-semibold">
+                                        Số điện thoại  <span class="text-danger">*</span>
+                                    </label>
+                                    <input type="text" class="form-control form-control-lg" id="customer_phone"
+                                        name="customer_phone" required>
+                                </div>
                                 <!-- Tỉnh/Thành phố -->
                                 <div class="mb-3">
                                     <label for="province" class="form-label fw-semibold">

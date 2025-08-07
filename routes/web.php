@@ -49,14 +49,6 @@ Route::delete('/cart/clear', [CartController::class, 'clear'])->name('cart.clear
 Route::get('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
 
 
-// // Cart - Public (guest cart + user cart)
-// Route::prefix('cart')->name('cart.')->group(function () {
-//     Route::get('/', [CartController::class, 'index'])->name('index');
-//     Route::post('/add', [CartController::class, 'add'])->name('add');
-//     Route::put('/{id}', [CartController::class, 'update'])->name('update');
-//     Route::delete('/{id}', [CartController::class, 'remove'])->name('remove');
-// });
-
 // Product Routes
 Route::prefix('products')->name('products.')->group(function () {
     // Trang tất cả sản phẩm
@@ -94,6 +86,6 @@ Route::prefix('order')->name('order.')->group(function () {
     Route::get('/', [OrderController::class, 'index'])->name('all');
     Route::post('/', [OrderController::class, 'store'])->name('store'); // Submit order
     Route::get('/success/{order}', [OrderController::class, 'success'])->name('success'); // Success page
-    
+
 });
 

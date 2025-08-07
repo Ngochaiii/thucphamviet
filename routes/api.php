@@ -4,7 +4,7 @@ use App\Http\Controllers\Api\CartController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CategoryController;
-use App\Http\Controllers\web\OrderController;
+use App\Http\Controllers\Web\OrderController;
 
 /*
 |--------------------------------------------------------------------------
