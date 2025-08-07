@@ -111,7 +111,7 @@
             style="
             --img-src: url('{{asset('assets/web/images/images/item1.png')}}');
             --bg-color: #428372;
-            --title: 'Lemon'
+            --title: 'Drink'
             ">
             <div class="content">
                 <div class="image"></div>
@@ -126,8 +126,8 @@
                         Thưởng thức hương vị tươi mát tự nhiên của nước giải khát vị chanh, được làm từ nguyên liệu sạch và hữu cơ, giúp bạn giải khát và bổ sung năng lượng cho ngày dài.
                     </div>
                     <a href="">
-                        See More
-                        <span>&#8594</span>
+                        Xem Thêm
+                        <span>&#8594;</span>
                     </a>
                 </div>
             </div>
@@ -136,23 +136,23 @@
             style="
             --img-src: url('{{asset('assets/web/images/images/item2.png')}}');
             --bg-color: #EEAA19;
-            --title: 'Orange'
+            --title: 'Meat'
             ">
             <div class="content">
                 <div class="image"></div>
                 <div class="info">
                     <div class="title">
-                        Nước Giải Khát Vị Cam
+                        Thịt Bò Mỹ Tươi
                     </div>
                     <div class="category">
-                        Đồ Uống Trái Cây
+                        Thịt Sạch
                     </div>
                     <div class="des">
-                        Cùng “bung lụa” với vị cam chua ngọt siêu hấp dẫn, đánh thức mọi giác quan và khiến ngày dài thêm sảng khoái, vui nhộn hơn bao giờ hết!
+                        Thịt bò tươi, nhập khẩu Mỹ, được kiểm định nghiêm ngặt về chất lượng, giữ nguyên hương vị đậm đà và dinh dưỡng cho bữa ăn hoàn hảo.
                     </div>
                     <a href="">
-                        See More
-                        <span>&#8594</span>
+                        Xem Thêm
+                        <span>&#8594;</span>
                     </a>
                 </div>
             </div>
@@ -161,32 +161,31 @@
             style="
             --img-src: url('{{asset('assets/web/images/images/item3.png')}}');
             --bg-color: #e86c3f;
-            --title: 'Apple'
+            --title: 'Fruit'
             ">
             <div class="content">
                 <div class="image"></div>
                 <div class="info">
                     <div class="title">
-                         Nước Giải Khát Vị Cam
+                         Táo Fuji Nhật Bản
                     </div>
                     <div class="category">
-                         Đồ Uống Trái Cây
+                         Hoa Quả Tươi
                     </div>
                     <div class="des">
-                        Hương vị cam tươi mát, tự nhiên trong từng ngụm nước giải khát được làm từ nguyên liệu sạch, giúp bạn luôn sảng khoái và tràn đầy năng lượng suốt ngày dài.
+                        Táo Fuji ngọt giòn, được trồng theo phương pháp hữu cơ tại Nhật Bản, giàu vitamin và khoáng chất, là lựa chọn tuyệt vời cho sức khỏe mỗi ngày.
                     </div>
                     <a href="">
-                        See More
-                        <span>&#8594</span>
+                        Xem Thêm
+                        <span>&#8594;</span>
                     </a>
                 </div>
             </div>
         </div>
     </div>
     <div class="arrows">
-        <button id="prev">
-            << /button>
-                <button id="next">></button>
+        <button id="prev"><</button>
+        <button id="next">></button>
     </div>
     <ul class="dots">
         <li class="active"></li>
@@ -194,5 +193,6 @@
         <li></li>
     </ul>
 </div>
+
 <link rel="stylesheet" href="{{asset('assets/web/css/style_sider.css')}}">
 <script src="{{asset('assets/web/js/app.js')}}"></script>

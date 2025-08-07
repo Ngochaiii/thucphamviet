@@ -25,6 +25,30 @@ class HomeController extends Controller
             ->active()
             ->with(['category', 'unit'])
             ->get();
-        return view('src.web.home.index', compact('categories', 'product_best_saling','products_1'));
+        $products_2 = Product::where('category_id', 3)
+            ->active()
+            ->with(['category', 'unit'])
+            ->get();
+        $products_3 = Product::where('category_id', 4)
+            ->active()
+            ->with(['category', 'unit'])
+            ->get();
+        $products_4 = Product::where('category_id', 5)
+            ->active()
+            ->with(['category', 'unit'])
+            ->get();
+        $products_5 = Product::where('category_id', 6)
+            ->active()
+            ->with(['category', 'unit'])
+            ->get();
+        $products_6 = Product::where('category_id', 7)
+            ->active()
+            ->with(['category', 'unit'])
+            ->get();
+        $products_7 = Product::where('category_id', 8)
+            ->active()
+            ->with(['category', 'unit'])
+            ->get();
+        return view('src.web.home.index', compact('categories', 'product_best_saling', 'products_1', 'products_2', 'products_3', 'products_4', 'products_5', 'products_6','products_7'));
     }
 }

@@ -113,7 +113,7 @@
             <!-- Products Grid -->
             <div class="col-lg-9 col-md-8">
                 @if ($products->count() > 0)
-                    <div class="product-grid row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4">
+                    <div class="product-grid row row-cols-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-4">
                         @foreach ($products as $product)
                             <div class="col">
                                 <div class="product-item card h-100" data-product-id="{{ $product->id }}>
@@ -133,7 +133,7 @@
                                                 {{ $product->name }}
                                             </a>
                                         </h3>
-                                        <h4 class=fs-6 fw-normal fw-bold>{{ $product->jp_name }}</h4>
+                                        <h4 class="fs-6 fw-normal fw-bold">{{ $product->jp_name }}</h4>
                                         <!-- Rating -->
                                         <div>
                                             <span class="rating">
@@ -174,26 +174,19 @@
                                         <!-- Action Buttons -->
                                         <div class="button-area p-3 pt-0">
                                             <div class="row g-1 mt-2">
-                                                <div class="col-3">
+                                                <div class="col-4">
                                                     <input type="number" name="quantity"
                                                         class="form-control border-dark-subtle input-number quantity"
                                                         value="1" min="1" max="99">
                                                 </div>
-                                                <div class="col-7">
+                                                <div class="col-8">
                                                     <button type="button"
                                                         class="btn btn-primary rounded-1 p-2 fs-7 btn-cart">
                                                         <svg width="18" height="18">
                                                             <use xlink:href="#cart"></use>
                                                         </svg>
-                                                        <span class="btn-text">Add to Cart</span>
+                                                        <span class="btn-text d-none d-sm-inline"> Add to Cart</span>
                                                     </button>
-                                                </div>
-                                                <div class="col-2">
-                                                    <a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6">
-                                                        <svg width="18" height="18">
-                                                            <use xlink:href="#heart"></use>
-                                                        </svg>
-                                                    </a>
                                                 </div>
                                             </div>
                                         </div>

@@ -7,10 +7,10 @@
                 <div class="col-md-12">
 
                     <div class="section-header d-flex flex-wrap justify-content-between mb-5">
-                        <h2 class="section-title">Category</h2>
+                        <h2 class="section-title">Danh mục sản phẩm </h2>
 
                         <div class="d-flex align-items-center">
-                            <a href="#" class="btn btn-primary me-2">View All</a>
+                            <a href="#" class="btn btn-primary me-2">Tất cả</a>
                             <div class="swiper-buttons">
                                 <button class="swiper-prev category-carousel-prev btn btn-yellow">❮</button>
                                 <button class="swiper-next category-carousel-next btn btn-yellow">❯</button>
@@ -22,7 +22,6 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-
                     <div class="category-carousel swiper">
                         <div class="swiper-wrapper">
                             @foreach ($categories as $item)
@@ -33,42 +32,6 @@
                                     <h4 class="fs-6 mt-3 fw-normal category-title">{{ $item->name }}</h4>
                                 </a>
                             @endforeach
-
-                            <a href="category.html" class="nav-link swiper-slide text-center">
-                                <img src="{{ asset('assets/web/images/category-thumb-2.jpg') }}" class="rounded-circle"
-                                    alt="Category Thumbnail">
-                                <h4 class="fs-6 mt-3 fw-normal category-title">Breads & Sweets</h4>
-                            </a>
-                            <a href="category.html" class="nav-link swiper-slide text-center">
-                                <img src="{{ asset('assets/web/images/category-thumb-3.jpg') }}" class="rounded-circle"
-                                    alt="Category Thumbnail">
-                                <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
-                            </a>
-                            <a href="category.html" class="nav-link swiper-slide text-center">
-                                <img src="{{ asset('assets/web/images/category-thumb-4.jpg') }}" class="rounded-circle"
-                                    alt="Category Thumbnail">
-                                <h4 class="fs-6 mt-3 fw-normal category-title">Beverages</h4>
-                            </a>
-                            <a href="category.html" class="nav-link swiper-slide text-center">
-                                <img src="{{ asset('assets/web/images/category-thumb-5.jpg') }}" class="rounded-circle"
-                                    alt="Category Thumbnail">
-                                <h4 class="fs-6 mt-3 fw-normal category-title">Meat Products</h4>
-                            </a>
-                            <a href="category.html" class="nav-link swiper-slide text-center">
-                                <img src="{{ asset('assets/web/images/category-thumb-6.jpg') }}" class="rounded-circle"
-                                    alt="Category Thumbnail">
-                                <h4 class="fs-6 mt-3 fw-normal category-title">Breads</h4>
-                            </a>
-                            <a href="category.html" class="nav-link swiper-slide text-center">
-                                <img src="{{ asset('assets/web/images/category-thumb-7.jpg') }}" class="rounded-circle"
-                                    alt="Category Thumbnail">
-                                <h4 class="fs-6 mt-3 fw-normal category-title">Fruits & Veges</h4>
-                            </a>
-                            <a href="category.html" class="nav-link swiper-slide text-center">
-                                <img src="{{ asset('assets/web/images/category-thumb-8.jpg') }}" class="rounded-circle"
-                                    alt="Category Thumbnail">
-                                <h4 class="fs-6 mt-3 fw-normal category-title">Breads & Sweets</h4>
-                            </a>
                             <a href="category.html" class="nav-link swiper-slide text-center">
                                 <img src="{{ asset('assets/web/images/category-thumb-1.jpg') }}" class="rounded-circle"
                                     alt="Category Thumbnail">
@@ -106,7 +69,7 @@
 
                     <div class="section-header d-flex flex-wrap justify-content-between my-4">
 
-                        <h2 class="section-title">Best selling products</h2>
+                        <h2 class="section-title">Sản phẩm bán chạy nhất </h2>
 
                         <div class="d-flex align-items-center">
                             <a href="#" class="btn btn-primary rounded-1">View All</a>
@@ -119,19 +82,22 @@
             <div class="row">
                 <div class="col-md-12">
                     <div
-                        class="product-grid row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
+                        class="product-grid row row-cols-2 row-cols-sm-2 row-cols-md-3 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5">
+                        <!-- 2 columns on mobile, original layout on desktop -->
                         @foreach ($product_best_saling as $item)
                             <div class="col">
-                                <div class="product-item">
+                                <div class="product-item"
+                                    data-product-id="{{ $item->id }}>
                                     <figure>
-                                        <a href="{{ route('homepage') }}" title="Product Title">
-                                            <img src="{{ asset('storage/' . $item->image) }}" alt="Product Thumbnail"
-                                                class="tab-image">
-                                        </a>
+                                        <a href="{{ route('homepage') }}"
+                                    title="Product Title">
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Product Thumbnail"
+                                        class="tab-image img-fluid">
+                                    </a>
                                     </figure>
                                     <div class="d-flex flex-column text-center">
                                         <h3 class="fs-6 fw-normal">{{ $item->name }}</h3>
-                                        <h4 class=fs-6 fw-normal fw-bold>{{ $item->jp_name }}</h4>
+                                        <h4 class="fs-6 fw-normal fw-bold">{{ $item->jp_name }}</h4>
                                         <div>
                                             <span class="rating">
                                                 <svg width="18" height="18" class="text-warning">
@@ -178,554 +144,28 @@
                                         </div>
                                         <div class="button-area p-3 pt-0">
                                             <div class="row g-1 mt-2">
-                                                <div class="col-3"><input type="number" name="quantity"
+                                                <div class="col-3">
+                                                    <input type="number" name="quantity"
                                                         class="form-control border-dark-subtle input-number quantity"
-                                                        value="1"></div>
-                                                <div class="col-7"><a href="#"
-                                                        class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                            width="18" height="18">
+                                                        value="1" min="1" max="99">
+                                                </div>
+                                                <div class="col-7">
+                                                    <button type="button"
+                                                        class="btn btn-primary rounded-1 p-2 fs-7 btn-cart">
+                                                        <svg width="18" height="18">
                                                             <use xlink:href="#cart"></use>
-                                                        </svg> Add to Cart</a></div>
-                                                <div class="col-2"><a href="#"
-                                                        class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg
-                                                            width="18" height="18">
-                                                            <use xlink:href="#heart"></use>
-                                                        </svg></a></div>
+                                                        </svg>
+                                                        <span class="btn-text d-none d-sm-inline"> Add to Cart</span>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
-
-
-                        <div class="col">
-                            <div class="product-item">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-2.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Whole Grain Oatmeal</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(41)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$54.00</del>
-                                        <span class="text-dark fw-semibold">$50.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="product-item">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-3.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Sharp Cheddar Cheese Block</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(32)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$14.00</del>
-                                        <span class="text-dark fw-semibold">$12.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="product-item">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-4.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Organic Baby Spinach</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="product-item">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-5.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Organic Spinach Leaves (Fresh Produce)</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="product-item">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-6.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Fresh Salmon</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="product-item">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-7.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Imported Italian Spaghetti Pasta</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="product-item">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-8.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Granny Smith Apples</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="product-item">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-9.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Organic 2% Reduced Fat Milk </h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col">
-                            <div class="product-item">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-10.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Greek Style Plain Yogurt</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
                     </div>
                     <!-- / product-grid -->
-
-
                 </div>
             </div>
         </div>
@@ -786,7 +226,7 @@
 
                     <div class="section-header d-flex flex-wrap justify-content-between my-4">
 
-                        <h2 class="section-title">Featured products</h2>
+                        <h2 class="section-title">Thịt,Thuỷ hải sản</h2>
 
                         <div class="d-flex align-items-center">
                             <a href="#" class="btn btn-primary me-2">View All</a>
@@ -801,15 +241,14 @@
             </div>
             <div class="row">
                 <div class="col-md-12">
-
-                    <div class="swiper">
-                        <div class="swiper-wrapper">
-                            @foreach ($products_1 as $item)
-                                <div class="product-item swiper-slide" data-product-id="{{ $item->id }}">
+                    <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                        @foreach ($products_1 as $item)
+                            <div class="col">
+                                <div class="product-item" data-product-id="{{ $item->id }}">
                                     <figure>
                                         <a href="{{ route('homepage') }}" title="Product Title">
                                             <img src="{{ asset('storage/' . $item->image) }}" alt="Product Thumbnail"
-                                                class="tab-image">
+                                                class="tab-image img-fluid">
                                         </a>
                                     </figure>
                                     <div class="d-flex flex-column text-center">
@@ -872,474 +311,17 @@
                                                         <svg width="18" height="18">
                                                             <use xlink:href="#cart"></use>
                                                         </svg>
-                                                        <span class="btn-text">Add to Cart</span>
+                                                        <span class="btn-text d-none d-sm-inline"> Add to Cart</span>
                                                     </button>
-                                                </div>
-                                                <div class="col-2">
-                                                    <a href="#" class="btn btn-outline-dark rounded-1 p-2 fs-6">
-                                                        <svg width="18" height="18">
-                                                            <use xlink:href="#heart"></use>
-                                                        </svg>
-                                                    </a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-11.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Pure Squeezed No Pulp Orange Juice</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-12.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Fresh Oranges</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-13.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Gourmet Dark Chocolate Bars</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-14.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Fresh Green Celery</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-15.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Sandwich Bread</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-16.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Honeycrisp Apples</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-17.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Whole Wheat Sandwich Bread</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-18.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Honeycrisp Apples</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                        </div>
+                        @endforeach
                     </div>
-                    <!-- / products-carousel -->
-
+                    <!-- / products-grid -->
                 </div>
             </div>
         </div>
@@ -1364,13 +346,13 @@
                             <form>
                                 <div class="mb-3">
                                     <label for="name" class="form-label d-none">Name</label>
-                                    <input type="text" class="form-control form-control-md rounded-0"
-                                        name="name" id="name" placeholder="Name">
+                                    <input type="text" class="form-control form-control-md rounded-0" name="name"
+                                        id="name" placeholder="Name">
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label d-none">Email</label>
-                                    <input type="email" class="form-control form-control-md rounded-0"
-                                        name="email" id="email" placeholder="Email Address">
+                                    <input type="email" class="form-control form-control-md rounded-0" name="email"
+                                        id="email" placeholder="Email Address">
                                 </div>
                                 <div class="d-grid gap-2">
                                     <button type="submit" class="btn btn-dark btn-md rounded-0">Submit</button>
@@ -1394,7 +376,7 @@
 
                     <div class="section-header d-flex justify-content-between my-4">
 
-                        <h2 class="section-title">Most popular products</h2>
+                        <h2 class="section-title">Rau củ , hoa quả </h2>
 
                         <div class="d-flex align-items-center">
                             <a href="#" class="btn btn-primary me-2">View All</a>
@@ -1412,516 +394,86 @@
 
                     <div class="swiper">
                         <div class="swiper-wrapper">
-
-                            <div class="product-item swiper-slide">
+                            @foreach ($products_2 as $item)
+                                <div class="product-item swiper-slide"
+                                    data-product-id="{{ $item->id }}>
                                 <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-15.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
+                                    <a href="{{ route('homepage') }}"
+                                    title="Product Title">
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Product Thumbnail"
+                                        class="tab-image img-fluid">
                                     </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Sandwich Bread</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
+                                    </figure>
+                                    <div class="d-flex flex-column text-center">
+                                        <h3 class="fs-6 fw-normal">{{ $item->name }}</h3>
+                                        <h4 class="fs-6 fw-normal fw-bold">{{ $item->jp_name }}</h4>
+                                        <div>
+                                            <span class="rating">
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-half"></use>
+                                                </svg>
+                                            </span>
+                                            <span>(222)</span>
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center gap-2">
+                                            @if ($item->is_discounted)
+                                                {{-- Giá gốc bị gạch --}}
+                                                <del>
+                                                    <x-currency :amount="$item->price" :currency="$item->currency" />
+                                                </del>
+
+                                                {{-- Giá sau giảm --}}
+                                                <span class="text-dark fw-semibold">
+                                                    <x-currency :amount="$item->discounted_price" :currency="$item->currency" />
+                                                </span>
+
+                                                {{-- Badge giảm giá --}}
+                                                <span
+                                                    class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">
+                                                    {{ number_format($item->discount, 0) }}% OFF
+                                                </span>
+                                            @else
+                                                {{-- Chỉ hiển thị giá bình thường khi không có giảm giá --}}
+                                                <span class="text-dark fw-semibold">
+                                                    <x-currency :amount="$item->price" :currency="$item->currency" />
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <div class="button-area p-3 pt-0">
+                                            <div class="row g-1 mt-2">
+                                                <div class="col-3">
+                                                    <input type="number" name="quantity"
+                                                        class="form-control border-dark-subtle input-number quantity"
+                                                        value="1" min="1" max="99">
+                                                </div>
+                                                <div class="col-7">
+                                                    <button type="button"
+                                                        class="btn btn-primary rounded-1 p-2 fs-7 btn-cart">
+                                                        <svg width="18" height="18">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                        <span class="btn-text d-none d-sm-inline"> Add to Cart</span>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-16.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Honeycrisp Apples</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-17.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Whole Wheat Sandwich Bread</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-18.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Honeycrisp Apples</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-19.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Sunstar Fresh Melon Juice</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-10.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Greek Style Plain Yogurt</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-11.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Pure Squeezed No Pulp Orange Juice</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-12.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Fresh Oranges</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-13.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Gourmet Dark Chocolate Bars</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
+                            @endforeach
                         </div>
                     </div>
-                    <!-- / products-carousel -->
-
                 </div>
             </div>
         </div>
@@ -1934,7 +486,7 @@
 
                     <div class="section-header d-flex justify-content-between my-4">
 
-                        <h2 class="section-title">Just arrived</h2>
+                        <h2 class="section-title">Bún mỳ miến</h2>
 
                         <div class="d-flex align-items-center">
                             <a href="#" class="btn btn-primary me-2">View All</a>
@@ -1952,515 +504,87 @@
 
                     <div class="swiper">
                         <div class="swiper-wrapper">
-
-                            <div class="product-item swiper-slide">
+                            @foreach ($products_3 as $item)
+                                <div class="product-item swiper-slide"
+                                    data-product-id="{{ $item->id }}>
                                 <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-20.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
+                                    <a href="{{ route('homepage') }}"
+                                    title="Product Title">
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Product Thumbnail"
+                                        class="tab-image img-fluid">
                                     </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Sunstar Fresh Melon Juice</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
+                                    </figure>
+                                    <div class="d-flex flex-column text-center">
+                                        <h3 class="fs-6 fw-normal">{{ $item->name }}</h3>
+                                        <h4 class="fs-6 fw-normal fw-bold">{{ $item->jp_name }}</h4>
+                                        <div>
+                                            <span class="rating">
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-half"></use>
+                                                </svg>
+                                            </span>
+                                            <span>(222)</span>
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center gap-2">
+                                            @if ($item->is_discounted)
+                                                {{-- Giá gốc bị gạch --}}
+                                                <del>
+                                                    <x-currency :amount="$item->price" :currency="$item->currency" />
+                                                </del>
+
+                                                {{-- Giá sau giảm --}}
+                                                <span class="text-dark fw-semibold">
+                                                    <x-currency :amount="$item->discounted_price" :currency="$item->currency" />
+                                                </span>
+
+                                                {{-- Badge giảm giá --}}
+                                                <span
+                                                    class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">
+                                                    {{ number_format($item->discount, 0) }}% OFF
+                                                </span>
+                                            @else
+                                                {{-- Chỉ hiển thị giá bình thường khi không có giảm giá --}}
+                                                <span class="text-dark fw-semibold">
+                                                    <x-currency :amount="$item->price" :currency="$item->currency" />
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <div class="button-area p-3 pt-0">
+                                            <div class="row g-1 mt-2">
+                                                <div class="col-3">
+                                                    <input type="number" name="quantity"
+                                                        class="form-control border-dark-subtle input-number quantity"
+                                                        value="1" min="1" max="99">
+                                                </div>
+                                                <div class="col-7">
+                                                    <button type="button"
+                                                        class="btn btn-primary rounded-1 p-2 fs-7 btn-cart">
+                                                        <svg width="18" height="18">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                        <span class="btn-text d-none d-sm-inline"> Add to Cart</span>
+                                                    </button>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-1.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Whole Wheat Sandwich Bread</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-21.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Sunstar Fresh Melon Juice</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-22.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Gourmet Dark Chocolate</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-23.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Sunstar Fresh Melon Juice</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-10.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Greek Style Plain Yogurt</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-11.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Pure Squeezed No Pulp Orange Juice</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-12.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Fresh Oranges</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="product-item swiper-slide">
-                                <figure>
-                                    <a href="{{ route('homepage') }}" title="Product Title">
-                                        <img src="{{ asset('assets/web/images/product-thumb-13.png') }}"
-                                            alt="Product Thumbnail" class="tab-image">
-                                    </a>
-                                </figure>
-                                <div class="d-flex flex-column text-center">
-                                    <h3 class="fs-6 fw-normal">Gourmet Dark Chocolate Bars</h3>
-                                    <div>
-                                        <span class="rating">
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-full"></use>
-                                            </svg>
-                                            <svg width="18" height="18" class="text-warning">
-                                                <use xlink:href="#star-half"></use>
-                                            </svg>
-                                        </span>
-                                        <span>(222)</span>
-                                    </div>
-                                    <div class="d-flex justify-content-center align-items-center gap-2">
-                                        <del>$24.00</del>
-                                        <span class="text-dark fw-semibold">$18.00</span>
-                                        <span
-                                            class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">10%
-                                            OFF</span>
-                                    </div>
-                                    <div class="button-area p-3 pt-0">
-                                        <div class="row g-1 mt-2">
-                                            <div class="col-3"><input type="number" name="quantity"
-                                                    class="form-control border-dark-subtle input-number quantity"
-                                                    value="1"></div>
-                                            <div class="col-7"><a href="#"
-                                                    class="btn btn-primary rounded-1 p-2 fs-7 btn-cart"><svg
-                                                        width="18" height="18">
-                                                        <use xlink:href="#cart"></use>
-                                                    </svg> Add to Cart</a></div>
-                                            <div class="col-2"><a href="#"
-                                                    class="btn btn-outline-dark rounded-1 p-2 fs-6"><svg width="18"
-                                                        height="18">
-                                                        <use xlink:href="#heart"></use>
-                                                    </svg></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
                     </div>
                     <!-- / products-carousel -->
-
                 </div>
             </div>
         </div>
@@ -2577,8 +701,7 @@
                                 <a href="#" title="App store"><img
                                         src="{{ asset('assets/web/images/img-app-store.png') }}" alt="app-store"></a>
                                 <a href="#" title="Google Play"><img
-                                        src="{{ asset('assets/web/images/img-google-play.png') }}"
-                                        alt="google-play"></a>
+                                        src="{{ asset('assets/web/images/img-google-play.png') }}" alt="google-play"></a>
                             </div>
                         </div>
                         <div class="col-md-5">
@@ -2591,31 +714,469 @@
 
         </div>
     </section>
+    <section id="latest-products" class="products-carousel">
+        <div class="container-lg overflow-hidden pb-5">
+            <div class="row">
+                <div class="col-md-12">
 
-    <section class="py-4">
-        <div class="container-lg">
-            <h2 class="my-4">People are also looking for</h2>
-            <a href="#" class="btn btn-warning me-2 mb-2">Blue diamon almonds</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Angie’s Boomchickapop Corn</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Salty kettle Corn</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Chobani Greek Yogurt</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Sweet Vanilla Yogurt</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Foster Farms Takeout Crispy wings</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Warrior Blend Organic</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Chao Cheese Creamy</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Chicken meatballs</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Blue diamon almonds</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Angie’s Boomchickapop Corn</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Salty kettle Corn</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Chobani Greek Yogurt</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Sweet Vanilla Yogurt</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Foster Farms Takeout Crispy wings</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Warrior Blend Organic</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Chao Cheese Creamy</a>
-            <a href="#" class="btn btn-warning me-2 mb-2">Chicken meatballs</a>
+                    <div class="section-header d-flex justify-content-between my-4">
+
+                        <h2 class="section-title">Nguyên liệu đồ khô</h2>
+
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-primary me-2">View All</a>
+                            <div class="swiper-buttons">
+                                <button class="swiper-prev products-carousel-prev btn btn-primary">❮</button>
+                                <button class="swiper-next products-carousel-next btn btn-primary">❯</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            @foreach ($products_4 as $item)
+                                <div class="product-item swiper-slide"
+                                    data-product-id="{{ $item->id }}>
+                                <figure>
+                                    <a href="{{ route('homepage') }}"
+                                    title="Product Title">
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Product Thumbnail"
+                                        class="tab-image img-fluid">
+                                    </a>
+                                    </figure>
+                                    <div class="d-flex flex-column text-center">
+                                        <h3 class="fs-6 fw-normal">{{ $item->name }}</h3>
+                                        <h4 class="fs-6 fw-normal fw-bold">{{ $item->jp_name }}</h4>
+                                        <div>
+                                            <span class="rating">
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-half"></use>
+                                                </svg>
+                                            </span>
+                                            <span>(222)</span>
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center gap-2">
+                                            @if ($item->is_discounted)
+                                                {{-- Giá gốc bị gạch --}}
+                                                <del>
+                                                    <x-currency :amount="$item->price" :currency="$item->currency" />
+                                                </del>
+
+                                                {{-- Giá sau giảm --}}
+                                                <span class="text-dark fw-semibold">
+                                                    <x-currency :amount="$item->discounted_price" :currency="$item->currency" />
+                                                </span>
+
+                                                {{-- Badge giảm giá --}}
+                                                <span
+                                                    class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">
+                                                    {{ number_format($item->discount, 0) }}% OFF
+                                                </span>
+                                            @else
+                                                {{-- Chỉ hiển thị giá bình thường khi không có giảm giá --}}
+                                                <span class="text-dark fw-semibold">
+                                                    <x-currency :amount="$item->price" :currency="$item->currency" />
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <div class="button-area p-3 pt-0">
+                                            <div class="row g-1 mt-2">
+                                                <div class="col-3">
+                                                    <input type="number" name="quantity"
+                                                        class="form-control border-dark-subtle input-number quantity"
+                                                        value="1" min="1" max="99">
+                                                </div>
+                                                <div class="col-7">
+                                                    <button type="button"
+                                                        class="btn btn-primary rounded-1 p-2 fs-7 btn-cart">
+                                                        <svg width="18" height="18">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                        <span class="btn-text d-none d-sm-inline"> Add to Cart</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <!-- / products-carousel -->
+                </div>
+            </div>
         </div>
     </section>
+    <section id="latest-products" class="products-carousel">
+        <div class="container-lg overflow-hidden pb-5">
+            <div class="row">
+                <div class="col-md-12">
 
+                    <div class="section-header d-flex justify-content-between my-4">
+
+                        <h2 class="section-title">Nguyên liệu đồ khô</h2>
+
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-primary me-2">View All</a>
+                            <div class="swiper-buttons">
+                                <button class="swiper-prev products-carousel-prev btn btn-primary">❮</button>
+                                <button class="swiper-next products-carousel-next btn btn-primary">❯</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            @foreach ($products_5 as $item)
+                                <div class="product-item swiper-slide"
+                                    data-product-id="{{ $item->id }}>
+                                <figure>
+                                    <a href="{{ route('homepage') }}"
+                                    title="Product Title">
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Product Thumbnail"
+                                        class="tab-image img-fluid">
+                                    </a>
+                                    </figure>
+                                    <div class="d-flex flex-column text-center">
+                                        <h3 class="fs-6 fw-normal">{{ $item->name }}</h3>
+                                        <h4 class="fs-6 fw-normal fw-bold">{{ $item->jp_name }}</h4>
+                                        <div>
+                                            <span class="rating">
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-half"></use>
+                                                </svg>
+                                            </span>
+                                            <span>(222)</span>
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center gap-2">
+                                            @if ($item->is_discounted)
+                                                {{-- Giá gốc bị gạch --}}
+                                                <del>
+                                                    <x-currency :amount="$item->price" :currency="$item->currency" />
+                                                </del>
+
+                                                {{-- Giá sau giảm --}}
+                                                <span class="text-dark fw-semibold">
+                                                    <x-currency :amount="$item->discounted_price" :currency="$item->currency" />
+                                                </span>
+
+                                                {{-- Badge giảm giá --}}
+                                                <span
+                                                    class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">
+                                                    {{ number_format($item->discount, 0) }}% OFF
+                                                </span>
+                                            @else
+                                                {{-- Chỉ hiển thị giá bình thường khi không có giảm giá --}}
+                                                <span class="text-dark fw-semibold">
+                                                    <x-currency :amount="$item->price" :currency="$item->currency" />
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <div class="button-area p-3 pt-0">
+                                            <div class="row g-1 mt-2">
+                                                <div class="col-3">
+                                                    <input type="number" name="quantity"
+                                                        class="form-control border-dark-subtle input-number quantity"
+                                                        value="1" min="1" max="99">
+                                                </div>
+                                                <div class="col-7">
+                                                    <button type="button"
+                                                        class="btn btn-primary rounded-1 p-2 fs-7 btn-cart">
+                                                        <svg width="18" height="18">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                        <span class="btn-text d-none d-sm-inline"> Add to Cart</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <!-- / products-carousel -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-4">
+        <div class="container-lg">
+            <h2 class="my-4">Khách hàng cũng tìm kiếm</h2>
+            <a href="#" class="btn btn-warning me-2 mb-2">Hạnh nhân Blue Diamond</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Bắp rang Angie’s Boomchickapop</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Bắp rang muối giòn</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Sữa chua Hy Lạp Chobani</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Sữa chua vani ngọt ngào</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Cánh gà giòn Foster Farms</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Trà Warrior Blend Organic</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Phô mai Chao Creamy</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Thịt viên gà</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Hạnh nhân Blue Diamond</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Bắp rang Angie’s Boomchickapop</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Bắp rang muối giòn</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Sữa chua Hy Lạp Chobani</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Sữa chua vani ngọt ngào</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Cánh gà giòn Foster Farms</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Trà Warrior Blend Organic</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Phô mai Chao Creamy</a>
+            <a href="#" class="btn btn-warning me-2 mb-2">Thịt viên gà</a>
+        </div>
+    </section>
+    <section id="latest-products" class="products-carousel">
+        <div class="container-lg overflow-hidden pb-5">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="section-header d-flex justify-content-between my-4">
+
+                        <h2 class="section-title">Giò chả thực phẩm chế biến sẵn</h2>
+
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-primary me-2">View All</a>
+                            <div class="swiper-buttons">
+                                <button class="swiper-prev products-carousel-prev btn btn-primary">❮</button>
+                                <button class="swiper-next products-carousel-next btn btn-primary">❯</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            @foreach ($products_6 as $item)
+                                <div class="product-item swiper-slide"
+                                    data-product-id="{{ $item->id }}>
+                                <figure>
+                                    <a href="{{ route('homepage') }}"
+                                    title="Product Title">
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Product Thumbnail"
+                                        class="tab-image img-fluid">
+                                    </a>
+                                    </figure>
+                                    <div class="d-flex flex-column text-center">
+                                        <h3 class="fs-6 fw-normal">{{ $item->name }}</h3>
+                                        <h4 class="fs-6 fw-normal fw-bold">{{ $item->jp_name }}</h4>
+                                        <div>
+                                            <span class="rating">
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-half"></use>
+                                                </svg>
+                                            </span>
+                                            <span>(222)</span>
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center gap-2">
+                                            @if ($item->is_discounted)
+                                                {{-- Giá gốc bị gạch --}}
+                                                <del>
+                                                    <x-currency :amount="$item->price" :currency="$item->currency" />
+                                                </del>
+
+                                                {{-- Giá sau giảm --}}
+                                                <span class="text-dark fw-semibold">
+                                                    <x-currency :amount="$item->discounted_price" :currency="$item->currency" />
+                                                </span>
+
+                                                {{-- Badge giảm giá --}}
+                                                <span
+                                                    class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">
+                                                    {{ number_format($item->discount, 0) }}% OFF
+                                                </span>
+                                            @else
+                                                {{-- Chỉ hiển thị giá bình thường khi không có giảm giá --}}
+                                                <span class="text-dark fw-semibold">
+                                                    <x-currency :amount="$item->price" :currency="$item->currency" />
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <div class="button-area p-3 pt-0">
+                                            <div class="row g-1 mt-2">
+                                                <div class="col-3">
+                                                    <input type="number" name="quantity"
+                                                        class="form-control border-dark-subtle input-number quantity"
+                                                        value="1" min="1" max="99">
+                                                </div>
+                                                <div class="col-7">
+                                                    <button type="button"
+                                                        class="btn btn-primary rounded-1 p-2 fs-7 btn-cart">
+                                                        <svg width="18" height="18">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                        <span class="btn-text d-none d-sm-inline"> Add to Cart</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <!-- / products-carousel -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="latest-products" class="products-carousel">
+        <div class="container-lg overflow-hidden pb-5">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="section-header d-flex justify-content-between my-4">
+
+                        <h2 class="section-title">Bánh kẹo , đồ ăn vặt , đồ uống</h2>
+
+                        <div class="d-flex align-items-center">
+                            <a href="#" class="btn btn-primary me-2">View All</a>
+                            <div class="swiper-buttons">
+                                <button class="swiper-prev products-carousel-prev btn btn-primary">❮</button>
+                                <button class="swiper-next products-carousel-next btn btn-primary">❯</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            @foreach ($products_7 as $item)
+                                <div class="product-item swiper-slide"
+                                    data-product-id="{{ $item->id }}>
+                                <figure>
+                                    <a href="{{ route('homepage') }}"
+                                    title="Product Title">
+                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Product Thumbnail"
+                                        class="tab-image img-fluid">
+                                    </a>
+                                    </figure>
+                                    <div class="d-flex flex-column text-center">
+                                        <h3 class="fs-6 fw-normal">{{ $item->name }}</h3>
+                                        <h4 class="fs-6 fw-normal fw-bold">{{ $item->jp_name }}</h4>
+                                        <div>
+                                            <span class="rating">
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-full"></use>
+                                                </svg>
+                                                <svg width="18" height="18" class="text-warning">
+                                                    <use xlink:href="#star-half"></use>
+                                                </svg>
+                                            </span>
+                                            <span>(222)</span>
+                                        </div>
+                                        <div class="d-flex justify-content-center align-items-center gap-2">
+                                            @if ($item->is_discounted)
+                                                {{-- Giá gốc bị gạch --}}
+                                                <del>
+                                                    <x-currency :amount="$item->price" :currency="$item->currency" />
+                                                </del>
+
+                                                {{-- Giá sau giảm --}}
+                                                <span class="text-dark fw-semibold">
+                                                    <x-currency :amount="$item->discounted_price" :currency="$item->currency" />
+                                                </span>
+
+                                                {{-- Badge giảm giá --}}
+                                                <span
+                                                    class="badge border border-dark-subtle rounded-0 fw-normal px-1 fs-7 lh-1 text-body-tertiary">
+                                                    {{ number_format($item->discount, 0) }}% OFF
+                                                </span>
+                                            @else
+                                                {{-- Chỉ hiển thị giá bình thường khi không có giảm giá --}}
+                                                <span class="text-dark fw-semibold">
+                                                    <x-currency :amount="$item->price" :currency="$item->currency" />
+                                                </span>
+                                            @endif
+                                        </div>
+                                        <div class="button-area p-3 pt-0">
+                                            <div class="row g-1 mt-2">
+                                                <div class="col-3">
+                                                    <input type="number" name="quantity"
+                                                        class="form-control border-dark-subtle input-number quantity"
+                                                        value="1" min="1" max="99">
+                                                </div>
+                                                <div class="col-7">
+                                                    <button type="button"
+                                                        class="btn btn-primary rounded-1 p-2 fs-7 btn-cart">
+                                                        <svg width="18" height="18">
+                                                            <use xlink:href="#cart"></use>
+                                                        </svg>
+                                                        <span class="btn-text d-none d-sm-inline"> Add to Cart</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <!-- / products-carousel -->
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="py-5">
         <div class="container-lg">
             <div class="row row-cols-1 row-cols-sm-3 row-cols-lg-5">
@@ -2628,7 +1189,7 @@
                         </div>
                         <div class="card-body p-0">
                             <h5>Giao hàng tận nơi</h5>
-                            <p class="card-text">Giao hàng nhanh chóng, tận nơi trong khu vực .</p>
+                            <p class="card-text">Giao hàng nhanh chóng, tận nơi trong khu vực của bạn.</p>
                         </div>
                     </div>
                 </div>
@@ -2641,7 +1202,7 @@
                         </div>
                         <div class="card-body p-0">
                             <h5>Thanh toán an toàn 100%</h5>
-                            <p class="card-text">Bảo mật tuyệt đối với các phương thức thanh toán đáng tin cậy.</p>
+                            <p class="card-text">Bảo mật cao với các phương thức thanh toán đáng tin cậy.</p>
                         </div>
                     </div>
                 </div>
@@ -2654,7 +1215,7 @@
                         </div>
                         <div class="card-body p-0">
                             <h5>Cam kết chất lượng</h5>
-                            <p class="card-text">Sản phẩm được kiểm định nghiêm ngặt, đảm bảo tươi sạch và an toàn.</p>
+                            <p class="card-text">Sản phẩm kiểm định kỹ càng, luôn tươi sạch và an toàn.</p>
                         </div>
                     </div>
                 </div>
@@ -2666,8 +1227,8 @@
                             </svg>
                         </div>
                         <div class="card-body p-0">
-                            <h5>Tiết kiệm đảm bảo</h5>
-                            <p class="card-text">Giá cả cạnh tranh, giúp bạn tiết kiệm tối đa chi phí mua sắm.</p>
+                            <h5>Tiết kiệm tối đa</h5>
+                            <p class="card-text">Giá cả cạnh tranh giúp bạn tiết kiệm chi phí hiệu quả.</p>
                         </div>
                     </div>
                 </div>
@@ -2679,13 +1240,12 @@
                             </svg>
                         </div>
                         <div class="card-body p-0">
-                            <h5>Ưu đãi hàng ngày</h5>
-                            <p class="card-text">Cập nhật các chương trình khuyến mãi hấp dẫn mỗi ngày cho khách hàng.</p>
+                            <h5>Ưu đãi hấp dẫn</h5>
+                            <p class="card-text">Cập nhật liên tục các chương trình khuyến mãi dành cho bạn.</p>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
 @endsection

@@ -32,19 +32,19 @@ body {
 
   --bs-primary: #6BB252;
   --bs-primary-rgb: 107, 178, 82;
-  
+
   --bs-secondary: #364127;
   --bs-secondary-rgb: 54, 65, 39;
-  
+
   --bs-danger: #F95F09;
   --bs-danger-rgb: 249, 95, 9;
 
   --bs-success: #a3be4c;
   --bs-success-rgb: 163, 190, 76;
-  
+
   --bs-primary-bg-subtle: #FFF9EB;
   --bs-success-bg-subtle: #eef5e5;
-  
+
   --bs-border-color: #F7F7F7;
 }
 .btn-primary {
@@ -240,7 +240,7 @@ h1,h2,h3,h4,h5,h6 {
   .container-lg {
       max-width: 1600px;
   }
-} 
+}
 
 .banner-blocks {
   display: grid;
@@ -260,7 +260,7 @@ h1,h2,h3,h4,h5,h6 {
   .block-1 { grid-area: 1 / 1 / 3 / 2; }
   .block-2 { grid-area: 3 / 1 / 4 / 2; }
   .block-3 { grid-area: 4 / 1 / 5 / 2; }
-  
+
 }
 
 /* Swiper carousel */
@@ -336,14 +336,14 @@ h1,h2,h3,h4,h5,h6 {
 .product-tabs .nav-tabs {
   justify-content: flex-end;
   border: none;
-  
+
   --bs-nav-link-hover-color: #111;
   --bs-nav-link-color: #555;
   --bs-nav-tabs-link-border-color: #fff;
   --bs-nav-tabs-link-hover-border-color: transparent;
   --bs-nav-tabs-link-active-border-color: #fff;
 }
-.product-tabs .nav-tabs .nav-link.active, 
+.product-tabs .nav-tabs .nav-link.active,
 .product-tabs .nav-tabs .nav-item.show .nav-link {
   /* border: none; */
   border-bottom: 3px solid var(--bs-primary);
@@ -355,15 +355,15 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /* product-grid */
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {  
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
    opacity: 1;
 }
 .product-item .button-area .quantity {
   padding: 0.5rem;
 }
 .product-item .button-area {
-  display: none;
+  /* display: none; */
   position: absolute;
   text-align: center;
   background: #fff;
@@ -379,7 +379,6 @@ input[type=number]::-webkit-outer-spin-button {
   padding: 16px;
   background: #FFFFFF;
   border-radius: 16px;
-  margin-bottom: 30px;
   box-shadow: 0px 0px 22px rgba(0, 0, 0, 0);
   /* transition: box-shadow 0.3s ease-out, margin 0.3s ease-out; */
 }
@@ -396,8 +395,42 @@ input[type=number]::-webkit-outer-spin-button {
   text-align: center;
 }
 .product-item figure img {
-  max-height: 210px;
-  height: auto;
+    max-height: 210px;
+    height: auto;
+}
+
+/* Mobile styles */
+@media (max-width: 575.98px) {
+    .product-item figure img {
+        height: 150px; /* Fixed height cho mobile */
+        width: 100%;
+        object-fit: cover; /* Giữ tỉ lệ và crop nếu cần */
+        object-position: center; /* Căn giữa hình ảnh */
+    }
+    .product-item .button-area {
+        border-radius: 15px;
+        bottom: -13px;
+        z-index: 1;
+        box-shadow: 0px 20px 44px rgba(0, 0, 0, 0.08);
+        /* transition: box-shadow 0.3s ease-out; */
+        }
+}
+
+/* Optional: Tablet styles */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .product-item figure img {
+        height: 180px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+        .product-item .button-area {
+        border-radius: 15px;
+        bottom: -13px;
+        z-index: 1;
+        box-shadow: 0px 20px 44px rgba(0, 0, 0, 0.08);
+        /* transition: box-shadow 0.3s ease-out; */
+        }
 }
 .product-item .product-qty {
   width: 85px;
@@ -580,11 +613,11 @@ a.btn-link.text-light:after {
 .navbar .megamenu{ padding: 1rem; }
 /* ============ desktop view ============ */
 @media all and (min-width: 992px) {
-	
+
 	.navbar .has-megamenu{position:static!important;}
 	.navbar .megamenu{left:0; right:0; width:100%; margin-top:0;  }
-	
-}	
+
+}
 /* ============ desktop view .end// ============ */
 
 
@@ -596,4 +629,95 @@ a.btn-link.text-light:after {
 	    margin-top:10px;
 	}
 }
+
+.product-item.swiper-slide.swiper-slide-active {
+    text-align: center;
+}
+/* Reset về trạng thái ban đầu và chỉ điều chỉnh mobile */
+@media (max-width: 575.98px) {
+    /* Đảm bảo swiper wrapper hoạt động bình thường */
+    .category-carousel .swiper-wrapper {
+        display: flex !important;
+        flex-wrap: nowrap !important; /* Không wrap, giữ nguyên horizontal */
+    }
+
+    /* Chỉ điều chỉnh kích thước slide để hiển thị 3 items */
+    .category-carousel .swiper-slide {
+        width: calc(33.333% - 10px) !important; /* 3 cột = 33.333% mỗi cột */
+        flex-shrink: 0 !important;
+        margin-right: 15px !important;
+    }
+
+    /* Viền bao cả container (ảnh + chữ) - Bo góc và viền rõ hơn */
+    .category-carousel .swiper-slide a.nav-link {
+        border-radius: 15px !important; /* Bo góc nhiều hơn */
+        border: 3px solid #e0e0e0 !important; /* Viền đậm hơn */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important; /* Đổ bóng đậm hơn */
+        padding: 15px !important; /* Padding lớn hơn */
+        display: block !important;
+        background: white !important;
+        transition: all 0.3s ease !important; /* Hiệu ứng hover */
+    }
+
+    /* Hiệu ứng hover cho mobile */
+    .category-carousel .swiper-slide a.nav-link:hover {
+        border-color: #007bff !important;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2) !important;
+        transform: translateY(-2px) !important;
+    }
+
+    .category-carousel .swiper-slide img {
+        width: 60px !important;
+        height: 60px !important;
+        object-fit: cover;
+        margin: 0 auto;
+        display: block;
+        border-radius: 12px !important; /* Ảnh cũng bo góc nhiều hơn */
+    }
+
+    .category-carousel .category-title {
+        font-size: 0.75rem !important;
+        margin-top: 6px !important;
+        line-height: 1.2;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #333 !important;
+    }
+}
+
+/* Đảm bảo desktop không bị ảnh hưởng */
+@media (min-width: 576px) {
+    .category-carousel .swiper-wrapper {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .category-carousel .swiper-slide {
+        width: auto !important;
+    }
+
+    /* Desktop cũng áp dụng style container với bo góc và viền rõ hơn */
+    .category-carousel .swiper-slide a.nav-link {
+        border-radius: 15px !important;
+        border: 3px solid #e0e0e0 !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15) !important;
+        padding: 18px !important; /* Desktop padding lớn hơn một chút */
+        display: block !important;
+        background: white !important;
+        transition: all 0.3s ease !important;
+    }
+
+    .category-carousel .swiper-slide a.nav-link:hover {
+        border-color: #007bff !important;
+        box-shadow: 0 6px 12px rgba(0,0,0,0.2) !important;
+        transform: translateY(-2px) !important;
+    }
+
+    .category-carousel .swiper-slide img {
+        border-radius: 12px !important;
+    }
+}
 /* ============ mobile view .end// ============ */
+

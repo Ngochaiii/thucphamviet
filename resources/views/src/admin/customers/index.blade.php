@@ -161,55 +161,40 @@
                                             @endif
                                         </div>
                                     </td>
-                                    <td style="max-width: 250px;">
+                                    <td style="max-width: 300px;">
                                         <div class="order-items">
-                                            @foreach ($order->orderItems->take(3) as $item)
-                                                <div class="d-flex align-items-center mb-1">
+                                            @foreach ($order->orderItems as $item)
+                                                <div class="d-flex align-items-center mb-2 p-1" style="border: 1px solid #e3e6f0; border-radius: 4px; background-color: #f8f9fc;">
                                                     @if ($item->product_image)
                                                         <img src="{{ asset('storage/'. $item->product_image) }}"
                                                             alt="{{ $item->product_name }}" class="img-thumbnail mr-2"
-                                                            style="width: 30px; height: 30px;">
+                                                            style="width: 40px; height: 40px; object-fit: cover;">
                                                     @endif
                                                     <div class="flex-grow-1">
-                                                        <small><strong>{{ Str::limit($item->product_name, 20) }}</strong></small>
+                                                        <div><strong>{{ Str::limit($item->product_name, 25) }}</strong></div>
                                                         @if ($item->product_jp_name)
-                                                            <br><small
-                                                                class="text-muted">{{ Str::limit($item->product_jp_name, 20) }}</small>
+                                                            <div><small class="text-muted">{{ Str::limit($item->product_jp_name, 25) }}</small></div>
                                                         @endif
-                                                        <br><small
-                                                            class="text-success">¥{{ number_format($item->unit_price) }}</small>
+                                                        <div class="d-flex justify-content-between align-items-center">
+                                                            <small class="text-success">¥{{ number_format($item->unit_price) }}</small>
+                                                            <span class="badge badge-primary">{{ $item->quantity }}
+                                                                @if ($item->product_unit_display)
+                                                                    {{ $item->product_unit_display }}
+                                                                @endif
+                                                            </span>
+                                                        </div>
                                                         @if ($item->product_category)
-                                                            <span
-                                                                class="badge badge-light badge-sm">{{ $item->product_category }}</span>
+                                                            <span class="badge badge-light badge-sm">{{ $item->product_category }}</span>
                                                         @endif
                                                     </div>
                                                 </div>
                                             @endforeach
-                                            @if ($order->orderItems->count() > 3)
-                                                <small class="text-muted">... và {{ $order->orderItems->count() - 3 }} sản
-                                                    phẩm khác</small>
-                                            @endif
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <div class="quantity-summary">
-                                            @foreach ($order->orderItems->take(3) as $item)
-                                                <div class="mb-1">
-                                                    <span class="badge badge-primary">{{ $item->quantity }}</span>
-                                                    @if ($item->product_unit_display)
-                                                        <small class="text-muted">{{ $item->product_unit_display }}</small>
-                                                    @endif
-                                                </div>
-                                            @endforeach
-                                            @if ($order->orderItems->count() > 3)
-                                                <small class="text-muted">...</small>
-                                            @endif
-                                            <hr class="my-1">
-                                            <div class="text-center">
-                                                <strong
-                                                    class="text-info">{{ $order->orderItems->sum('quantity') }}</strong>
-                                                <br><small class="text-muted">tổng items</small>
-                                            </div>
+                                        <div class="text-center">
+                                            <h5 class="text-primary mb-1">{{ $order->orderItems->sum('quantity') }}</h5>
+                                            <small class="text-muted">items</small>
                                         </div>
                                     </td>
                                     <td style="max-width: 200px;">
@@ -410,8 +395,9 @@
 @push('css')
     <style>
         .order-items {
-            max-height: 150px;
+            max-height: 300px;
             overflow-y: auto;
+            overflow-x: hidden;
         }
 
         .table td {
@@ -420,6 +406,36 @@
 
         .btn-group-vertical .btn {
             margin-bottom: 2px;
+        }
+
+        /* Scroll bar styling cho order-items */
+        .order-items::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .order-items::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 3px;
+        }
+
+        .order-items::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 3px;
+        }
+
+        .order-items::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8;
+        }
+
+        /* Product item styling */
+        .order-items .d-flex {
+            transition: all 0.2s ease;
+        }
+
+        .order-items .d-flex:hover {
+            background-color: #e3f2fd !important;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
     </style>
 @endpush
