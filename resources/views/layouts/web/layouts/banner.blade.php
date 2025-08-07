@@ -1,4 +1,4 @@
-<section
+<section id="banner"
     style="background-image: url('{{ asset('assets/web/images/banner-1.jpg') }}');background-repeat: no-repeat;background-size: cover;">
     <div class="container-lg">
         <div class="row">
@@ -102,6 +102,97 @@
                 </div>
             </div>
         </div>
-
     </div>
 </section>
+<!-- slider -->
+<div class="carousel">
+    <div class="list">
+        <div class="item active"
+            style="
+            --img-src: url('{{asset('assets/web/images/images/item1.png')}}');
+            --bg-color: #428372;
+            --title: 'Lemon'
+            ">
+            <div class="content">
+                <div class="image"></div>
+                <div class="info">
+                    <div class="title">
+                         Nước Giải Khát Vị Chanh
+                    </div>
+                    <div class="category">
+                        Đồ Uống Trái Cây
+                    </div>
+                    <div class="des">
+                        Thưởng thức hương vị tươi mát tự nhiên của nước giải khát vị chanh, được làm từ nguyên liệu sạch và hữu cơ, giúp bạn giải khát và bổ sung năng lượng cho ngày dài.
+                    </div>
+                    <a href="">
+                        See More
+                        <span>&#8594</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item"
+            style="
+            --img-src: url('{{asset('assets/web/images/images/item2.png')}}');
+            --bg-color: #EEAA19;
+            --title: 'Orange'
+            ">
+            <div class="content">
+                <div class="image"></div>
+                <div class="info">
+                    <div class="title">
+                        Nước Giải Khát Vị Cam
+                    </div>
+                    <div class="category">
+                        Đồ Uống Trái Cây
+                    </div>
+                    <div class="des">
+                        Cùng “bung lụa” với vị cam chua ngọt siêu hấp dẫn, đánh thức mọi giác quan và khiến ngày dài thêm sảng khoái, vui nhộn hơn bao giờ hết!
+                    </div>
+                    <a href="">
+                        See More
+                        <span>&#8594</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="item"
+            style="
+            --img-src: url('{{asset('assets/web/images/images/item3.png')}}');
+            --bg-color: #e86c3f;
+            --title: 'Apple'
+            ">
+            <div class="content">
+                <div class="image"></div>
+                <div class="info">
+                    <div class="title">
+                         Nước Giải Khát Vị Cam
+                    </div>
+                    <div class="category">
+                         Đồ Uống Trái Cây
+                    </div>
+                    <div class="des">
+                        Hương vị cam tươi mát, tự nhiên trong từng ngụm nước giải khát được làm từ nguyên liệu sạch, giúp bạn luôn sảng khoái và tràn đầy năng lượng suốt ngày dài.
+                    </div>
+                    <a href="">
+                        See More
+                        <span>&#8594</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="arrows">
+        <button id="prev">
+            << /button>
+                <button id="next">></button>
+    </div>
+    <ul class="dots">
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+<link rel="stylesheet" href="{{asset('assets/web/css/style_sider.css')}}">
+<script src="{{asset('assets/web/js/app.js')}}"></script>

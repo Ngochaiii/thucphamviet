@@ -103,8 +103,8 @@
     /* Responsive cho mobile nhỏ */
     @media (max-width: 480px) {
         .call-button {
-            bottom: 80px;
-            left: 10px;
+            bottom: 12px;
+            left: 120px;
             padding: 8px 15px 8px 8px;
             font-size: 0.9rem;
         }
