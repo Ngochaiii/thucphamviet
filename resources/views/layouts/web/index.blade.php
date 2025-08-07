@@ -23,6 +23,7 @@
 @include('layouts.web.layouts.footer')
 @include('layouts.web.layouts.footer_js')
 @include('layouts.web.layouts.cart')
+@include('layouts.web.layouts.icon')
 @stack('footer_js')
 </body>
 </html>
