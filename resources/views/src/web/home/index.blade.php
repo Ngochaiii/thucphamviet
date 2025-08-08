@@ -171,7 +171,7 @@
         </div>
     </section>
 
-    <section class="py-3">
+    {{-- <section class="py-3">
         <div class="container-lg">
             <div class="row">
                 <div class="col-md-12">
@@ -217,7 +217,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> --}}
 
     <section id="featured-products" class="products-carousel">
         <div class="container-lg overflow-hidden py-5">
@@ -327,7 +327,7 @@
         </div>
     </section>
 
-    <section>
+    {{-- <section>
         <div class="container-lg">
 
             <div class="bg-secondary text-light py-5 my-5"
@@ -367,7 +367,7 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
 
     <section id="popular-products" class="products-carousel">
         <div class="container-lg overflow-hidden py-5">
@@ -688,7 +688,7 @@
 
     </section>
 
-    <section class="pb-4 my-4">
+    {{-- <section class="pb-4 my-4">
         <div class="container-lg">
 
             <div class="bg-warning pt-5 rounded-5">
@@ -713,7 +713,7 @@
             </div>
 
         </div>
-    </section>
+    </section> --}}
     <section id="latest-products" class="products-carousel">
         <div class="container-lg overflow-hidden pb-5">
             <div class="row">
