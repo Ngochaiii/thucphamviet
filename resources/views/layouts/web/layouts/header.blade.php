@@ -17,7 +17,7 @@
                  </button>
              </div>
 
-             {{-- <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-4">
+             <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-4">
                  <div class="search-bar row bg-light p-2 rounded-4">
                      <div class="col-md-4 d-none d-md-block">
                          <select class="form-select border-0 bg-transparent">
@@ -28,11 +28,37 @@
                          </select>
                      </div>
                      <div class="col-11 col-md-7">
-                         <form id="search-form" class="text-center" action="{{ route('homepage') }}" method="post">
-                             <input type="text" class="form-control border-0 bg-transparent"
+                         <form id="search-form" class="text-center" action="{{ route('products.all') }}" method="GET">
+                             <input type="text" name="search" class="form-control border-0 bg-transparent"
                                  placeholder="Search for more than 20,000 products">
                          </form>
                      </div>
+
+                     <!-- JavaScript để chuyển hướng ngay khi nhấn Enter hoặc click search -->
+                     <script>
+                         document.addEventListener('DOMContentLoaded', function() {
+                             const searchInput = document.querySelector('#search-form input');
+                             const searchIcon = document.querySelector('.search-bar svg');
+
+                             // Nhấn Enter trong ô search
+                             searchInput.addEventListener('keypress', function(e) {
+                                 if (e.key === 'Enter') {
+                                     e.preventDefault();
+                                     window.location.href = '{{ route('products.all') }}';
+                                 }
+                             });
+
+                             // Click vào icon search
+                             searchIcon.addEventListener('click', function() {
+                                 window.location.href = '{{ route('products.all') }}';
+                             });
+
+                             // Hoặc focus vào ô search cũng chuyển luôn (tùy chọn)
+                             // searchInput.addEventListener('focus', function() {
+                             //     window.location.href = '{{ route('products.all') }}';
+                             // });
+                         });
+                     </script>
                      <div class="col-1">
                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                              <path fill="currentColor"
@@ -40,7 +66,7 @@
                          </svg>
                      </div>
                  </div>
-             </div> --}}
+             </div>
 
              <div class="col-lg-4">
                  <ul
@@ -100,3 +126,72 @@
          </div>
      </div>
  </header>
+ <style>
+     /* CSS cho search-bar cố định trên mobile */
+     .search-bar {
+         transition: all 0.3s ease;
+     }
+
+     /* Media query cho mobile */
+     @media (max-width: 768px) {
+         .search-bar {
+             position: fixed;
+             top: 0;
+             left: 0;
+             right: 0;
+             z-index: 1030;
+             /* Bootstrap's z-index cho fixed elements */
+             width: 100%;
+             margin: 0;
+             border-radius: 0 !important;
+             /* Bỏ border-radius trên mobile khi fixed */
+             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+             /* Thêm shadow để phân biệt */
+         }
+
+         /* Thêm padding-top cho body để tránh content bị che */
+         body {
+             padding-top: 60px;
+             /* Điều chỉnh theo chiều cao của search-bar */
+         }
+
+         /* Hoặc thêm margin-top cho container chính */
+         .main-content {
+             margin-top: 60px;
+         }
+     }
+
+     /* Nếu muốn chỉ fixed khi scroll xuống */
+     @media (max-width: 768px) {
+         .search-bar.scrolled {
+             position: fixed;
+             top: 0;
+             left: 0;
+             right: 0;
+             z-index: 1030;
+             width: 100%;
+             margin: 0;
+             border-radius: 0 !important;
+             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+             animation: slideDown 0.3s ease;
+         }
+
+         @keyframes slideDown {
+             from {
+                 transform: translateY(-100%);
+             }
+
+             to {
+                 transform: translateY(0);
+             }
+         }
+     }
+
+     /* CSS cho các màn hình lớn hơn tablet */
+     @media (min-width: 769px) {
+         .search-bar {
+             position: relative;
+             /* Giữ nguyên vị trí trên desktop */
+         }
+     }
+ </style>
