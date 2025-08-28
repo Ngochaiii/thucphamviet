@@ -365,94 +365,96 @@
             </div>
         </div>
     </div>
-@forelse($products as $product)
-    <tr>
-        <td>{{ $product->id }}</td>
-        <td>
-            <span class="text-primary font-weight-bold">
-                {{ \App\Helpers\CurrencyHelper::formatPrice($product->price, $product->currency ?? 'JPY') }}
-            </span>
-            <br><small class="text-muted">{{ $product->currency ?? 'JPY' }}</small>
-
-            @if ($product->discount > 0)
-                <br>
-                <small class="text-muted">Giảm {{ $product->discount }}%</small>
-                <br>
-                <span class="text-success">
-                    {{ \App\Helpers\CurrencyHelper::formatPrice($product->discounted_price, $product->currency ?? 'JPY') }}
-                </span>
-            @endif
-        </td>
-        <td>
-            <span class="badge {{ $product->quantity > 0 ? 'badge-success' : 'badge-danger' }}">
-                {{ number_format($product->quantity) }}
-            </span>
-            @if ($product->unit)
-                <br><small class="text-muted">{{ $product->unit->name }}</small>
-            @endif
-        </td>
-        <td>
-            <div class="d-flex align-items-center">
-                <div class="stars mr-1">
-                    @for ($i = 1; $i <= 5; $i++)
-                        <i class="fas fa-star {{ $i <= $product->rating_avg ? 'text-warning' : 'text-muted' }}"
-                            style="font-size: 12px;"></i>
-                    @endfor
-                </div>
-                <small class="text-muted">
-                    {{ number_format($product->rating_avg, 1) }} ({{ $product->rating_count }})
-                </small>
-            </div>
-        </td>
-        <td>
-            @switch($product->status)
-                @case('active')
-                    <button type="button" class="btn btn-sm btn-success toggle-status" data-id="{{ $product->id }}"
-                        data-status="active" title="Click để vô hiệu hóa">
-                        <i class="fas fa-check mr-1"></i> Kích hoạt
-                    </button>
-                @break
-
-                @case('inactive')
-                    <button type="button" class="btn btn-sm btn-danger toggle-status" data-id="{{ $product->id }}"
-                        data-status="inactive" title="Click để kích hoạt">
-                        <i class="fas fa-times mr-1"></i> Vô hiệu
-                    </button>
-                @break
-
-                @default
-                    <span class="badge badge-secondary">{{ $product->status }}</span>
-            @endswitch
-        </td>
-        <td>
-            <div class="btn-group" role="group">
-                <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-sm btn-outline-primary"
-                    title="Xem chi tiết">
-                    <i class="fas fa-eye"></i>
-                </a>
-                <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-sm btn-outline-info"
-                    title="Chỉnh sửa">
-                    <i class="fas fa-edit"></i>
-                </a>
-                <button type="button" class="btn btn-sm btn-outline-danger"
-                    onclick="deleteProduct({{ $product->id }})" title="Xóa">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </div>
-        </td>
-    </tr>
-    @empty
+    @forelse($products as $product)
         <tr>
-            <td colspan="10" class="text-center py-4">
-                <div class="text-muted">
-                    <i class="fas fa-box fa-3x mb-3"></i>
-                    <p>Không có sản phẩm nào được tìm thấy</p>
-                    <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
-                        <i class="fas fa-plus mr-1"></i> Thêm sản phẩm đầu tiên
+            <td>{{ $product->id }}</td>
+            <td>
+                <span class="text-primary font-weight-bold">
+                    {{ \App\Helpers\CurrencyHelper::formatPrice($product->price, $product->currency ?? 'JPY') }}
+                </span>
+                <br><small class="text-muted">{{ $product->currency ?? 'JPY' }}</small>
+
+                @if ($product->discount > 0)
+                    <br>
+                    <small class="text-muted">Giảm {{ $product->discount }}%</small>
+                    <br>
+                    <span class="text-success">
+                        {{ \App\Helpers\CurrencyHelper::formatPrice($product->discounted_price, $product->currency ?? 'JPY') }}
+                    </span>
+                @endif
+            </td>
+            <td>
+                <span class="badge {{ $product->quantity > 0 ? 'badge-success' : 'badge-danger' }}">
+                    {{ number_format($product->quantity) }}
+                </span>
+                @if ($product->unit)
+                    <br><small class="text-muted">{{ $product->unit->name }}</small>
+                @endif
+            </td>
+            <td>
+                <div class="d-flex align-items-center">
+                    <div class="stars mr-1">
+                        @for ($i = 1; $i <= 5; $i++)
+                            <i class="fas fa-star {{ $i <= $product->rating_avg ? 'text-warning' : 'text-muted' }}"
+                                style="font-size: 12px;"></i>
+                        @endfor
+                    </div>
+                    <small class="text-muted">
+                        {{ number_format($product->rating_avg, 1) }} ({{ $product->rating_count }})
+                    </small>
+                </div>
+            </td>
+            <td>
+                @switch($product->status)
+                    @case('active')
+                        <button type="button" class="btn btn-sm btn-success toggle-status" data-id="{{ $product->id }}"
+                            data-status="active" title="Click để vô hiệu hóa">
+                            <i class="fas fa-check mr-1"></i> Kích hoạt
+                        </button>
+                    @break
+
+                    @case('inactive')
+                        <button type="button" class="btn btn-sm btn-danger toggle-status" data-id="{{ $product->id }}"
+                            data-status="inactive" title="Click để kích hoạt">
+                            <i class="fas fa-times mr-1"></i> Vô hiệu
+                        </button>
+                    @break
+
+                    @default
+                        <span class="badge badge-secondary">{{ $product->status }}</span>
+                @endswitch
+            </td>
+            <td>
+                <div class="btn-group" role="group">
+                    <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-sm btn-outline-primary"
+                        title="Xem chi tiết">
+                        <i class="fas fa-eye"></i>
                     </a>
+                    <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-sm btn-outline-info"
+                        title="Chỉnh sửa">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <button type="button" class="btn btn-sm btn-outline-danger"
+                        onclick="deleteProduct({{ $product->id }})" title="Xóa">
+                        <i class="fas fa-trash"></i>
+                    </button>
                 </div>
             </td>
         </tr>
+        @empty
+            <tr>
+                <td colspan="10" class="text-center py-4">
+                    <div class="text-muted">
+                        <i class="fas fa-box fa-3x mb-3"></i>
+                        <p>Không có sản phẩm nào được tìm thấy</p>
+                        <a href="{{ route('admin.products.create') }}" class="btn btn-primary">
+                            <i class="fas fa-plus mr-1"></i> Thêm sản phẩm đầu tiên
+                        </a>
+                    </div>
+                </td>
+            </tr>
+
+        @endempty
     @endforelse
     <!-- Bulk Actions -->
     @if ($products->count() > 0)
@@ -751,7 +753,7 @@
             }, 3000);
         }
     </script>
-@endpush);
+@endpush;
 @push('footer_js')
     <script>
         $(document).ready(function() {
